@@ -1,0 +1,44 @@
+{
+  "name": "askcatherine-co-uk",
+  "type": "javascript",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "askcatherine.co.uk/*",
+      "zone_name": "askcatherine.co.uk"
+    },
+    {
+      "pattern": "www.askcatherine.co.uk/*",
+      "zone_name": "askcatherine.co.uk"
+    }
+  ],
+  "env": {
+    "production": {
+      "routes": [
+        {
+          "pattern": "askcatherine.co.uk/*",
+          "zone_name": "askcatherine.co.uk"
+        },
+        {
+          "pattern": "www.askcatherine.co.uk/*",
+          "zone_name": "askcatherine.co.uk"
+        }
+      ]
+    }
+  },
+  "build": {
+    "command": "npm run build",
+    "cwd": "."
+  },
+  "assets": {
+    "directory": "./public"
+  },
+  "vars": {
+    "FORMSPREE_KEY": "f/maenvjzp",
+    "MAILERLITE_ACCOUNT": "2221166",
+    "MAILERLITE_GROUP_ID": "184728230005048385",
+    "TURNSTILE_SITEKEY": "0x4AAAAAABeUzqw5zqgnfDOd"
+  }
+}

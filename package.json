@@ -1,0 +1,18 @@
+{
+  "name": "askcatherine-co-uk",
+  "version": "1.0.0",
+  "description": "AskCatherine.co.uk Cloudflare Worker",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=es2020 --outfile=dist/index.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.54.1",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "esbuild": "^0.20.0"
+  }
+}
