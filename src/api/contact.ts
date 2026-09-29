@@ -5,6 +5,7 @@ export interface Env {
   MAILERLITE_GROUP_ID: string;
   TURNSTILE_SECRET: string;
   TURNSTILE_SITEKEY: string;
+  ASSETS: Fetcher;
 }
 
 export async function handleContact(request: Request, env: Env): Promise<Response> {

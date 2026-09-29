@@ -1,39 +1,13 @@
 {
   "name": "askcatherine-co-uk",
-  "type": "javascript",
   "main": "src/index.ts",
   "compatibility_date": "2025-01-01",
   "workers_dev": true,
-  "routes": [
-    {
-      "pattern": "askcatherine.co.uk/*",
-      "zone_name": "askcatherine.co.uk"
-    },
-    {
-      "pattern": "www.askcatherine.co.uk/*",
-      "zone_name": "askcatherine.co.uk"
-    }
-  ],
-  "env": {
-    "production": {
-      "routes": [
-        {
-          "pattern": "askcatherine.co.uk/*",
-          "zone_name": "askcatherine.co.uk"
-        },
-        {
-          "pattern": "www.askcatherine.co.uk/*",
-          "zone_name": "askcatherine.co.uk"
-        }
-      ]
-    }
-  },
-  "build": {
-    "command": "npm run build",
-    "cwd": "."
-  },
+  // No routes yet: deploys to *.workers.dev only, for inspection.
+  // Add askcatherine.co.uk as a Custom Domain at cutover.
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS"
   },
   "vars": {
     "FORMSPREE_KEY": "f/maenvjzp",
@@ -41,4 +15,5 @@
     "MAILERLITE_GROUP_ID": "184728230005048385",
     "TURNSTILE_SITEKEY": "0x4AAAAAABeUzqw5zqgnfDOd"
   }
+  // Secrets (set in dashboard, not here): TURNSTILE_SECRET, MAILERLITE_API_KEY
 }
