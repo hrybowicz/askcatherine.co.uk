@@ -1,0 +1,13 @@
+{
+    "slug": "CapabilitiesAddon",
+    "name": "Capabilities",
+    "description": "Control which user roles can access each Duplicator feature.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

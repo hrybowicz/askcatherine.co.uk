@@ -1,0 +1,13 @@
+{
+    "slug": "GDriveAddon",
+    "name": "Google Drive Storage",
+    "description": "Store backups on Google Drive.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

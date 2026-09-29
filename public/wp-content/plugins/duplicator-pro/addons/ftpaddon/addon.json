@@ -1,0 +1,13 @@
+{
+    "slug": "FtpAddon",
+    "name": "FTP / SFTP Storage",
+    "description": "Store backups on remote servers via FTP or SFTP.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

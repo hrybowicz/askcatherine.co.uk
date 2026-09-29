@@ -1,0 +1,18 @@
+:root {
+--gp-font--archivo: "Archivo";
+}
+
+@font-face {
+	font-display: auto;
+	font-family: "Archivo";
+	font-style: normal;
+	font-weight: 700;
+	src: url('https://wordpress-1666078-6669163.cloudwaysapps.com/wp-content/uploads/generatepress/fonts/archivo/Archivo-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-display: auto;
+	font-family: "Archivo";
+	font-style: normal;
+	font-weight: 400;
+	src: url('https://wordpress-1666078-6669163.cloudwaysapps.com/wp-content/uploads/generatepress/fonts/archivo/Archivo-Regular.ttf') format('truetype');
+}

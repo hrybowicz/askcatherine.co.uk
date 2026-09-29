@@ -1,0 +1,13 @@
+{
+    "slug": "RecoveryAddon",
+    "name": "Recovery",
+    "description": "Emergency recovery point for quick site restore.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

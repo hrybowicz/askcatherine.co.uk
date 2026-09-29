@@ -1,0 +1,13 @@
+{
+    "slug": "ScheduleAddon",
+    "name": "Schedule",
+    "description": "Run backups automatically on a recurring schedule.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "5.3",
+    "requiresPHP": "7.4",
+    "requiresDuplcator": "4.5.20",
+    "requiresAddons": ["ProBase"]
+}

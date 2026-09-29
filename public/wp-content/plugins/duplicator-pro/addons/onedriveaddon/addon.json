@@ -1,0 +1,13 @@
+{
+    "slug": "OneDriveAddon",
+    "name": "OneDrive Storage",
+    "description": "Store backups on Microsoft OneDrive.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

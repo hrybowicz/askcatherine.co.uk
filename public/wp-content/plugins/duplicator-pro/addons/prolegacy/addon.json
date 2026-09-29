@@ -1,0 +1,13 @@
+{
+    "slug": "ProLegacy",
+    "name": "Pro Legacy Support",
+    "description": "Backward compatibility for deprecated prefixes (hooks, options, temp files).",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "7.4",
+    "requiresDuplcator": "4.5.24",
+    "requiresAddons": []
+}

@@ -1,0 +1,13 @@
+{
+    "slug": "MultisiteAddon",
+    "name": "Multisite",
+    "description": "WordPress Multisite support: network-level backups and subsite import.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

@@ -1,0 +1,186 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./addons/brandaddon/assets/sass/main.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/*!
+DUPLICATOR BRAND ADDON STYLE
+*/
+/**
+ * Foundation for Sites
+ * Version 6.9.0
+ * https://get.foundation
+ * Licensed under MIT Open Source
+ */
+.dup-styles .brand-tbl .brand-detail {
+  display: none;
+  margin: 0;
+}
+.dup-styles .brand-tbl .brand-detail td {
+  padding: 3px 0 5px 20px;
+}
+.dup-styles .brand-tbl .brand-detail div {
+  line-height: 20px;
+  padding: 2px 2px 2px 15px;
+}
+.dup-styles .brand-tbl .brand-detail label {
+  min-width: 150px;
+  display: inline-block;
+  font-weight: bold;
+}
+.dup-styles .brand-logo-editor button,
+.dup-styles .brand-logo-editor .ed_button {
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: initial;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1.25rem 0;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 0.8125rem;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 9px;
+  background-color: #fefefe;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
+.dup-styles .brand-logo-editor button:hover, .dup-styles .brand-logo-editor button:focus,
+.dup-styles .brand-logo-editor .ed_button:hover,
+.dup-styles .brand-logo-editor .ed_button:focus {
+  background: #f0f0f1;
+  border-color: #0b2f7d;
+  color: #0b2f7d;
+}
+.dup-styles #dup-storage-form input[type=text],
+.dup-styles input[type=password] {
+  width: 250px;
+}
+.dup-styles #dup-storage-form input#name {
+  width: 100%;
+  max-width: 500px;
+}
+.dup-styles #dup-storage-form input#_local_storage_folder {
+  width: 100% !important;
+  max-width: 500px;
+}
+.dup-styles td.dupli-sub-title {
+  padding: 0;
+  margin: 0;
+}
+.dup-styles td.dupli-sub-title b {
+  padding: 20px 0;
+  margin: 0;
+  display: block;
+  font-size: 1.25em;
+}
+.dup-styles input#max_default_store_files {
+  width: 50px !important;
+}
+.dup-styles form#dupli-package-brand-form {
+  padding: 0;
+}
+.dup-styles form#dupli-package-brand-form input[type=text] {
+  width: 350px;
+}
+.dup-styles form#dupli-package-brand-form .readonly {
+  background: transparent;
+  border: none;
+}
+.dup-styles textarea#brand-notes {
+  width: 350px;
+}
+.dup-styles textarea#brand-logo {
+  width: 600px;
+  height: 120px;
+  font-size: 12px;
+}
+.dup-styles textarea#brand-default-logo {
+  width: 600px;
+  height: 50px;
+  font-size: 12px;
+}
+.dup-styles div.style-guide-link {
+  text-align: right;
+  width: 100%;
+  margin: 0 0 5px 0;
+}
+.dup-styles div.dupli-dlg-alert-txt {
+  line-height: 20px;
+  font-size: 14px !important;
+}
+.dup-styles div.preview-area {
+  border: 2px dashed #CDCDCD;
+  width: 95%;
+  height: auto;
+  background: #fff;
+  font-family: Verdana, Arial, sans-serif;
+}
+.dup-styles div.preview-box {
+  border: 1px solid #CDCDCD;
+  border-radius: 5px;
+  max-width: 750px;
+  margin: 10px auto 0 auto;
+  height: auto;
+  border-bottom: 1px dashed #999;
+}
+.dup-styles div.preview-header {
+  height: auto;
+  background: #F1F1F1;
+  box-shadow: 0 5px 3px -3px #999;
+}
+.dup-styles div.preview-title {
+  font-size: 26px;
+  padding: 10px 0 7px 15px;
+  font-weight: bold;
+  min-height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.dup-styles div.preview-content {
+  padding: 8px 15px 0 15px;
+  clear: both;
+}
+.dup-styles div.preview-version {
+  white-space: nowrap;
+  color: #777;
+  font-size: 11px;
+  font-style: italic;
+  text-align: right;
+  padding: 0 15px 5px 0;
+  line-height: 14px;
+  font-weight: normal;
+  align-self: center;
+}
+.dup-styles div.preview-version a {
+  color: #999;
+}
+.dup-styles div.preview-mode {
+  text-align: right;
+  color: #999;
+  font-style: italic;
+  font-size: 12px;
+}
+.dup-styles div.preview-steps {
+  font-size: 22px;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #D3D3D3;
+  font-weight: bold;
+  margin: 15px 0 20px 0;
+}
+.dup-styles div.preview-steps b {
+  color: red;
+}
+.dup-styles div#preview-logo {
+  display: inline-block;
+}
+.dup-styles #preview-logo img {
+  max-width: 100%;
+}
+.dup-styles div.preview-notes {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  margin: 5px;
+}

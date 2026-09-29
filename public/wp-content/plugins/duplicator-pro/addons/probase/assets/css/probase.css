@@ -1,0 +1,59 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./addons/probase/assets/sass/main.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/*!
+DUPLICATOR PRO BASE ADDON STYLE
+*/
+/**
+ * Foundation for Sites
+ * Version 6.9.0
+ * https://get.foundation
+ * Licensed under MIT Open Source
+ */
+.dup-styles .dup-unavailable-wrapper {
+  text-align: center;
+  background: #fefefe;
+  border: 1px solid #a0a0a0;
+  padding: 1.25rem;
+}
+.dup-styles .dup-unavailable-wrapper h3 {
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+.dup-styles .dup-unavailable-wrapper > p {
+  margin: 0 auto 28px;
+  color: #666666;
+}
+.dup-styles .dup-unavailable-wrapper .dup-unavailable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.dup-styles .dup-unavailable-wrapper .dup-unavailable-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  padding: 0.5rem;
+  background: #fefefe;
+  border: 2px solid #e8e8e8;
+  border-radius: 4px;
+}
+.dup-styles .dup-unavailable-wrapper .dup-unavailable-card i, .dup-styles .dup-unavailable-wrapper .dup-unavailable-card img {
+  font-size: 2.5rem;
+  width: 60px;
+  height: auto;
+}
+.dup-styles .dup-unavailable-wrapper .dup-unavailable-card__label {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+}

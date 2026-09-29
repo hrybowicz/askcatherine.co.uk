@@ -1,0 +1,489 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./addons/importaddon/assets/sass/main.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+/*!
+DUPLICATOR IMPORT ADDON STYLE
+*/
+/**
+ * Foundation for Sites
+ * Version 6.9.0
+ * https://get.foundation
+ * Licensed under MIT Open Source
+ */
+.dup-styles .dupli-import-box {
+  background-color: #fefefe;
+  border: 1px solid #a0a0a0;
+  margin: 0;
+}
+.dup-styles .dupli-import-box .box-title {
+  border-bottom: 1px solid #a0a0a0;
+  padding: 10px 12px;
+  font-weight: bold;
+  font-size: 17px;
+  font-weight: bold;
+  color: #000;
+}
+.dup-styles .dupli-import-box .box-content {
+  padding: 20px;
+}
+.dup-styles .dupli-import-box.closable .box-title {
+  position: relative;
+}
+.dup-styles .dupli-import-box.closable .box-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 36px;
+  display: inline-block;
+  width: 36px;
+  text-align: center;
+  font-family: "Font Awesome 5 Free";
+  content: "";
+  font-weight: 900;
+}
+.dup-styles .dupli-import-box.closable.closed .box-title {
+  border: 0 none;
+}
+.dup-styles .dupli-import-box.closable.closed .box-title::after {
+  content: "\f0d7";
+}
+.dup-styles .dupli-import-box.closable.opened .box-title::after {
+  content: "\f0d8";
+}
+.dup-styles .dupli-import-box.closable.closed .box-content {
+  display: none;
+}
+.dup-styles .dupli-import-box.closable.opened .box-content {
+  display: block;
+}
+.dup-styles .dupli-import-header {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.dup-styles .dupli-import-header .title {
+  margin: 0;
+  line-height: 40px;
+  font-size: 20px;
+}
+.dup-styles .dupli-import-header .options {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  z-index: 10000;
+}
+.dup-styles .dupli-import-header hr {
+  margin: 0;
+}
+.dup-styles .dupli-import-header .options .button {
+  width: 34px;
+  height: 34px;
+  box-sizing: border-box;
+  line-height: 34px;
+  text-align: center;
+  padding: 0;
+}
+.dup-styles {
+  /* ======================================================================================================================
+  STEP  1 - DOM ELEMENTS
+  ====================================================================================================================== */
+  /* -----------------------------
+  MENU - DROP-DOWN HAMBURGER
+  ----------------------------- */
+}
+.dup-styles .dupli-import-view-list {
+  position: relative;
+}
+.dup-styles .dupli-import-view-list.active::before {
+  content: "\f147";
+  font-family: dashicons;
+  display: inline-block;
+  line-height: 1;
+  font-weight: 400;
+  font-style: normal;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+}
+.dup-styles .dupli-toggle-sub-menu,
+.dup-styles .dupli-toggle-sub-menu ul,
+.dup-styles .dupli-toggle-sub-menu li {
+  margin: 0;
+}
+.dup-styles .dupli-toggle-sub-menu .title {
+  color: #666666;
+  font-weight: bold;
+}
+.dup-styles .dupli-toggle-sub-menu .separator {
+  border-top: 1px solid #ccd0d4;
+}
+.dup-styles .dupli-toggle-sub-menu .dupli-toggle {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: right;
+}
+.dup-styles .dupli-toggle-sub-menu ul {
+  display: none;
+  position: relative;
+  opacity: 0;
+  border: 1px solid #a0a0a0;
+  z-index: -1;
+  background: #fefefe;
+  transition: opacity 0.3s;
+  padding-bottom: 20px;
+}
+.dup-styles .dupli-toggle-sub-menu:hover ul {
+  display: block;
+  opacity: 1;
+  z-index: 10001;
+}
+.dup-styles .dupli-toggle-sub-menu ul li {
+  padding: 10px 10px 10px 40px;
+}
+.dup-styles .dupli-toggle-sub-menu ul li.title {
+  padding: 10px 10px 0 10px;
+}
+.dup-styles #dupli-import-vews-and-opt-wrapper .description {
+  display: block;
+  color: #666666;
+  font-style: italic;
+}
+.dup-styles #dupli-import-vews-and-opt-wrapper {
+  width: 250px;
+}
+.dup-styles {
+  /* -----------------------------
+  DRAG-DROP UPLOAD AREA
+  ----------------------------- */
+}
+.dup-styles .dupli-import-upload-box {
+  background: #fefefe;
+  border: 1px dashed #a0a0a0;
+  border-radius: 2px;
+  height: 220px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+}
+.dup-styles #dupli-import-upload-file .fs-upload-target {
+  color: #1D2327;
+  border: 0 none;
+  border-radius: 0;
+  height: 218px;
+  box-sizing: border-box;
+}
+.dup-styles #dupli-import-upload-file .fs-upload-target:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.dup-styles #dupli-import-upload-file .fs-upload-target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dup-styles .fs-upload-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}
+.dup-styles #dupli-import-upload-file-footer {
+  padding: 5px;
+  text-align: right;
+}
+.dup-styles #dupli-import-upload-file-footer .dupli-open-help-link {
+  letter-spacing: 2px;
+  float: right;
+}
+.dup-styles {
+  /* -----------------------------
+  ARCHIVE DISPLAY RESULTS:
+  Basic/Advanced
+  ----------------------------- */
+}
+.dup-styles .dup-drag-drop-message {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
+}
+.dup-styles #dupli-import-mode-tab-header {
+  border-bottom: 1px solid #a0a0a0;
+}
+.dup-styles #dupli-import-mode-tab-header > div {
+  float: left;
+  padding: 10px 0 15px 0;
+  font-size: 16px;
+  border-bottom: 2px solid transparent;
+  min-width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+.dup-styles #dupli-import-mode-tab-header > div:hover {
+  font-weight: bold;
+}
+.dup-styles #dupli-import-mode-tab-header > div.active {
+  border-bottom: 3px solid #91BCE3;
+  font-weight: bold;
+}
+.dup-styles #dupli-import-remote-url {
+  box-sizing: border-box;
+  height: 40px;
+  width: 1000px;
+  max-width: calc(100% - 150px);
+  margin-right: 10px;
+}
+.dup-styles .dupli-import-upload-box > div {
+  width: 100%;
+}
+.dup-styles .dupli-import-upload-box .dup-import-button {
+  display: inline-block;
+  padding: 0 30px !important;
+  font-weight: normal;
+  box-sizing: border-box;
+  height: 40px;
+}
+.dup-styles #dupli-import-mode-remote-tab sup {
+  font-size: 10px;
+  color: #a0a0a0;
+}
+.dup-styles div.dupli-import-upload-box small {
+  color: #a0a0a0;
+  font-style: italic;
+  padding: 7px;
+}
+.dup-styles .dup-import-avail-packs .dupli-import-no-package-found td {
+  padding: 20px;
+}
+.dup-styles div.dupli-import-no-package-found-msg {
+  font-size: 15px;
+  text-align: center;
+}
+.dup-styles table.dup-import-avail-packs th {
+  background-color: #e8e8e8;
+}
+.dup-styles table.dup-import-avail-packs tbody tr:nth-child(even) {
+  border: 1px solid #a0a0a0;
+}
+.dup-styles table.dup-import-avail-packs {
+  width: 100%;
+  min-height: inherit;
+  border: 1px solid #a0a0a0;
+  border-collapse: collapse;
+}
+.dup-styles table.dup-import-avail-packs thead {
+  border-bottom: 1px solid #e8e8e8;
+}
+.dup-styles table.dup-import-avail-packs th {
+  font-weight: bold;
+}
+.dup-styles table.dup-import-avail-packs th,
+.dup-styles table.dup-import-avail-packs td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 30px;
+}
+.dup-styles table.dup-import-avail-packs .size {
+  width: 100px;
+}
+.dup-styles table.dup-import-avail-packs .created {
+  text-align: left;
+  width: 125px;
+}
+.dup-styles table.dup-import-avail-packs .funcs {
+  text-align: center;
+  width: 400px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.dup-styles table.dup-import-avail-packs .funcs button,
+.dup-styles table.dup-import-avail-packs .funcs .button {
+  min-width: 120px;
+}
+.dup-styles table.dup-import-avail-packs .funcs .separator {
+  margin-left: 5px;
+}
+.dup-styles table.dup-import-avail-packs .funcs .separator-2x {
+  margin-left: 10px;
+}
+.dup-styles table.dup-import-avail-packs .funcs .dupli-loader {
+  display: flex;
+}
+.dup-styles table.dup-import-avail-packs .funcs div.actions {
+  text-align: right;
+}
+.dup-styles table.dup-import-avail-packs .funcs .dupli-import-action-cancel-upload {
+  margin-left: 10px;
+}
+.dup-styles .dupli-import-package-detail {
+  padding: 10px;
+  border-radius: 2px;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+.dup-styles .dupli-import-package-detail-content *:first-child {
+  margin-top: 0;
+}
+.dup-styles .dupli-import-package-detail-content *:last-child {
+  margin-bottom: 0;
+}
+.dup-styles .dupli-import-package-detail ul {
+  margin: 0;
+}
+.dup-styles .dupli-import-package-detail ul li {
+  margin: 2px;
+  padding: 0;
+}
+.dup-styles .dupli-import-package-detail .label.title {
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+.dup-styles .dupli-import-package-detail .label {
+  display: inline-block;
+  min-width: 150px;
+}
+.dup-styles .dupli-import-package-detail .value {
+  font-weight: bold;
+}
+.dup-styles div#dupli-import-available-packages {
+  background-color: #fefefe;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list tbody {
+  display: block;
+  padding: 20px;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list thead,
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list tbody tr {
+  display: none;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list tbody tr:first-child {
+  display: block;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list td {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list .dupli-import-package-detail {
+  display: block !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list .name::before {
+  content: "Package: ";
+  font-weight: bold;
+  margin: 0 5px 10px 0;
+  display: inline-block;
+}
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list .size,
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list .created,
+.dup-styles #dupli-import-available-packages.view-single-item .packages-list .dupli-import-action-package-detail-toggle {
+  display: none;
+}
+@media only screen and (max-width: 1200px) {
+  .dup-styles #dupli-import-available-packages.view-list-item .size,
+  .dup-styles #dupli-import-available-packages.view-list-item .created,
+  .dup-styles #dupli-import-available-packages.view-list-item thead .funcs {
+    display: none;
+  }
+  .dup-styles #dupli-import-available-packages.view-list-item td {
+    display: block;
+    text-align: left !important;
+    padding: 0 20px;
+  }
+  .dup-styles #dupli-import-available-packages.view-list-item tbody tr {
+    border-bottom: 1px solid #a0a0a0;
+    padding-bottom: 10px;
+    display: block;
+  }
+}
+.dup-styles .dupli-import-confirm-buttons {
+  padding-top: 1.25rem;
+  text-align: right;
+}
+.dup-styles .dupli-import-confirm-buttons input {
+  margin-left: 5px !important;
+}
+.dup-styles {
+  /* ======================================================================================================================
+  STEP 3 - STAND-ALONE INSTALLER DOM ELEMENTS
+  ======================================================================================================================*/
+}
+.dup-styles #dupli-import-installer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 1000002;
+}
+.dup-styles #dupli-import-installer-iframe {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+  z-index: 1000003;
+}
+.dup-styles {
+  /* Making sure the WP menu is not under the import screen */
+}
+.dup-styles #wpadminbar,
+.dup-styles #wpadminbar .ab-sub-wrapper,
+.dup-styles #wpadminbar ul,
+.dup-styles #wpadminbar ul li {
+  z-index: 1000004;
+}
+
+.admin_page_duplicator-import-installer .dup-header.dup-styles {
+  display: none;
+}
+.admin_page_duplicator-import-installer .wpcontent {
+  position: relative;
+}
+.admin_page_duplicator-import-installer #wpfooter {
+  display: none;
+}
+.admin_page_duplicator-import-installer .admin_page_duplicator-import-installer:not(.dup-actions-error) #wpbody-content > * {
+  display: none;
+}
+.admin_page_duplicator-import-installer #adminmenuwrap,
+.admin_page_duplicator-import-installer #dupli-import-installer-wrapper {
+  height: calc(100vh - 32px);
+  overflow: hidden;
+}
+@media only screen and (max-width: 782px) {
+  .admin_page_duplicator-import-installer #adminmenuwrap,
+  .admin_page_duplicator-import-installer #dupli-import-installer-wrapper {
+    height: calc(100vh - 46px);
+  }
+}
+.admin_page_duplicator-import-installer #dupli-import-installer-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex !important;
+  flex-flow: column;
+  z-index: 1000000;
+}
+.admin_page_duplicator-import-installer #dupli-import-installer-iframe {
+  flex: 1 1 auto;
+}
+.admin_page_duplicator-import-installer #dupli-import-installer-top-bar {
+  padding: 20px 0;
+}

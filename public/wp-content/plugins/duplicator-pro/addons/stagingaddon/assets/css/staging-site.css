@@ -1,0 +1,25 @@
+/**
+ * Staging Site Admin Bar Styles
+ */
+
+/* Staging Admin Bar Indicator */
+#wpadminbar .dupli-staging-bar {
+    background: #ff6b35 !important;
+}
+
+#wpadminbar .dupli-staging-bar > .ab-item {
+    color: #fff !important;
+}
+
+#wpadminbar .dupli-staging-bar:hover > .ab-item {
+    background: #e55a2b !important;
+    color: #fff !important;
+}
+
+#wpadminbar .dupli-staging-bar .dupli-staging-bar-icon {
+    height: 20px;
+    width: 20px;
+    padding: 6px 0;
+    vertical-align: middle;
+    margin-right: 6px;
+}

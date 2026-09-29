@@ -1,0 +1,13 @@
+{
+    "slug": "StagingAddon",
+    "name": "Staging",
+    "description": "Create and manage staging copies of the site.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

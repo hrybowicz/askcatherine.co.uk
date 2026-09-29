@@ -1,0 +1,97 @@
+(function ($, wpLinkL10n, wp) {
+    let editor = null;
+    const inputs = {};
+    const getLink = () => editor ? editor.$('a[data-wplink-edit="true"]') : null;
+
+    /**
+     * Markup for a rel attribute row.
+     *
+     * WordPress styles its own "Open link in a new tab" row through the
+     * link-target class. Reusing it makes our rows inherit the core spacing,
+     * alignment and responsive rules whatever the WordPress version, instead of
+     * duplicating values that drift each time the dialog layout is reworked.
+     */
+    const relRow = (modifier, id, label) =>
+        `<div class="link-target ${modifier}">
+            <label><span></span>
+            <input type="checkbox" id="${id}" /> ${label}</label>
+        </div>`;
+
+    /**
+     * Insert a rel attribute row after the last checkbox row of the dialog,
+     * falling back to the options wrapper if WordPress ever drops that row.
+     */
+    const addRelRow = (html) => {
+        const options = $('#link-options');
+        const lastRow = options.children('.link-target').last();
+
+        if (lastRow.length) {
+            lastRow.after(html);
+        } else {
+            options.append(html);
+        }
+    };
+
+    $(document).on('wplink-open', function (event, wrap) {
+        if (!wpLink.isMCE()) return;
+
+        if (!$('#wp-link-sponsored').length) {
+            addRelRow(relRow('link-sponsored', 'wp-link-sponsored', seopressI18n.sponsored));
+        }
+        if (!$('#wp-link-no-follow').length) {
+            addRelRow(relRow('link-no-follow', 'wp-link-no-follow', seopressI18n.nofollow));
+        }
+        if (!$('#wp-link-ugc').length) {
+            addRelRow(relRow('link-ugc', 'wp-link-ugc', seopressI18n.ugc));
+        }
+
+        inputs.sponsored = $('#wp-link-sponsored');
+        inputs.nofollow = $('#wp-link-no-follow');
+        inputs.ugc = $('#wp-link-ugc');
+        inputs.openInNewTab = $('#wp-link-target');
+        inputs.url = $('#wp-link-url');
+
+        if (typeof window.tinymce !== 'undefined') {
+            const ed = window.tinymce.get(window.wpActiveEditor);
+            editor = ed && !ed.isHidden() ? ed : null;
+            const linkNode = getLink();
+            if (linkNode) {
+                inputs.sponsored.prop('checked', undefined !== linkNode.attr('rel') && linkNode.attr('rel')?.includes('sponsored'));
+                inputs.nofollow.prop('checked', undefined !== linkNode.attr('rel') && linkNode.attr('rel')?.includes('nofollow'));
+                inputs.ugc.prop('checked', undefined !== linkNode.attr('rel') && linkNode.attr('rel')?.includes('ugc'));
+            }
+        }
+
+        window.wpLink.getAttrs = function () {
+            wpLink.correctURL();
+
+            const attrs = {
+                href: inputs.url.val().trim(),
+                target: inputs.openInNewTab.prop('checked') ? '_blank' : null,
+            }
+
+            let rel = '';
+            rel += inputs.sponsored.prop('checked') ? 'sponsored ' : ''
+            rel += inputs.nofollow.prop('checked') ? 'nofollow ' : ''
+            rel += inputs.ugc.prop('checked') ? 'ugc ' : ''
+            attrs.rel = rel ? rel : null;
+
+            return attrs;
+        };
+
+        window.wpLink.buildHtml = function (attrs) {
+            var html = '<a href="' + attrs.href + '"';
+
+            let rel = '';
+            if (attrs.target) {
+                html += ' target="' + attrs.target + '"';
+                rel += 'noopener ';
+            }
+
+            if (attrs.rel) rel += attrs.rel;
+            if (rel) html += ' rel="' + rel.trim() + '"';
+
+            return html + '>';
+        };
+    });
+})(jQuery, window.wpLinkL10n, window.wp);

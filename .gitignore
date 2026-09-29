@@ -6,4 +6,3 @@ dist/
 .DS_Store
 .wrangler/
 wrangler.toml
-public/

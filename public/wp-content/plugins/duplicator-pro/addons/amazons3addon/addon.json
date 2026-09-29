@@ -1,0 +1,13 @@
+{
+    "slug": "AmazonS3Addon",
+    "name": "Amazon S3 Storage",
+    "description": "Store backups on Amazon S3 and S3-compatible object storage.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}

@@ -1,0 +1,13 @@
+{
+    "slug": "WpCliAddon",
+    "name": "WP-CLI",
+    "description": "Command-line interface for backup operations via WP-CLI.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": []
+}

@@ -1,0 +1,13 @@
+{
+    "slug": "BrandAddon",
+    "name": "Branding",
+    "description": "White-label the plugin: replace name, logo, and URLs across the admin UI.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase", "TemplateAddon"]
+}

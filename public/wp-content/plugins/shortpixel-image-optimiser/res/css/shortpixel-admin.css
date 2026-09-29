@@ -1,0 +1,809 @@
+.sp-column-info {
+  max-width: 300px;
+  /* Dropdown Content (Hidden by Default) */
+  /* Links inside the dropdown */
+  /* Change color of dropdown links on hover */
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+}
+.sp-column-info .sp-column-actions {
+  max-width: 140px;
+  float: right;
+  text-align: right;
+}
+.sp-column-info .sp-column-actions .button.button-smaller {
+  margin-right: 0px;
+}
+.sp-column-info .thumbnails.optimized {
+  display: inline-block;
+}
+.sp-column-info .sp-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.sp-column-info .sp-dropbtn.button {
+  box-sizing: content-box;
+  padding: 0 5px;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.sp-column-info .sp-dropdown-content {
+  display: none;
+  right: 0;
+  position: absolute;
+  background: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+.sp-column-info .rtl .sp-dropdown-content {
+  right: auto;
+  left: 0;
+}
+.sp-column-info .sp-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.sp-column-info .sp-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.sp-column-info .sp-dropdown.sp-show .sp-dropdown-content {
+  display: block;
+}
+
+.view-edit-media a.debugModal {
+  margin: 20px 0;
+  display: inline-block;
+}
+.view-edit-media .sp-column-stats {
+  position: relative;
+}
+.view-edit-media .sp-column-stats .sp-column-actions {
+  margin-right: 5px;
+  margin-top: 16px;
+}
+.view-edit-media .sp-column-stats .edit-media-stats li {
+  margin: 0;
+  line-height: 20px;
+}
+.view-edit-media .main-actions {
+  display: inline-block;
+  width: 100%;
+}
+.view-edit-media .main-actions .button.button-smaller {
+  padding: 6px 15px;
+  height: auto;
+  float: none;
+}
+
+.spio-message img {
+  animation: cssload-spin 5000ms infinite linear;
+  -o-animation: cssload-spin 5000ms infinite linear;
+  -ms-animation: cssload-spin 5000ms infinite linear;
+  -webkit-animation: cssload-spin 5000ms infinite linear;
+  -moz-animation: cssload-spin 5000ms infinite linear;
+  vertical-align: top;
+}
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading-spin {
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading-spin {
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading-spin {
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.shortpixel-modal-active .debug-modal.debugInfo ul li strong {
+  display: inline-block;
+  min-width: 200px;
+}
+.shortpixel-modal-active .debug-modal.debugInfo ul li img {
+  max-height: 150px;
+}
+.shortpixel-modal-active .debug-modal.debugInfo .green {
+  color: green;
+}
+.shortpixel-modal-active .debug-modal.debugInfo .red {
+  color: red;
+}
+
+.shortpixel-icon {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 25px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.shortpixel-icon.rotate_right {
+  rotate: -90deg;
+}
+
+.shortpixel-icon.ai {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/ai.svg");
+}
+
+.shortpixel-icon.alert {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/alert.svg");
+}
+
+.shortpixel-icon.arrow-right {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/arrow-right.svg");
+}
+
+.shortpixel-icon.arrows-left-right {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/arrows-left-right.svg");
+}
+
+.shortpixel-icon.arrows-up-down {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/arrows-up-down.svg");
+}
+
+.shortpixel-icon.box-archive {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/box-archive.svg");
+}
+
+.shortpixel-icon.bulk {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/bulk.svg");
+}
+
+.shortpixel-icon.chevron {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/chevron.svg");
+}
+
+.shortpixel-icon.close {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/close.svg");
+}
+
+.shortpixel-icon.cart {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/cart.svg");
+}
+
+.shortpixel-icon.dashboard {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/dashboard.svg");
+}
+
+.shortpixel-icon.debug {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/debug.svg");
+}
+
+.shortpixel-icon.delivery {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/delivery.svg");
+}
+
+.shortpixel-icon.exclusions {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/exclusions.svg");
+}
+
+.shortpixel-icon.edit {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/edit.svg");
+}
+
+.shortpixel-icon.eye {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/eye.svg");
+}
+
+.shortpixel-icon.file {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/file.svg");
+}
+
+.shortpixel-icon.fix {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/fix.svg");
+}
+
+.shortpixel-icon.feedback {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/feedback.svg");
+}
+
+.shortpixel-icon.heart {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/heart.svg");
+}
+
+.shortpixel-icon.help {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/help.svg");
+}
+
+.shortpixel-icon.integrations {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/integrations.svg");
+}
+
+.shortpixel-icon.optimization {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/optimization.svg");
+}
+
+.shortpixel-icon.processing {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/processing.svg");
+}
+
+.shortpixel-icon.no-ai {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/no-ai.svg");
+}
+
+.shortpixel-icon.notifications {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/notifications.svg");
+}
+
+.shortpixel-icon.refresh {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/refresh.svg");
+}
+
+.shortpixel-icon.robo {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/robo.svg");
+}
+
+.shortpixel-icon.rocket {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/rocket.svg");
+}
+
+.shortpixel-icon.tools {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/tools.svg");
+}
+
+.shortpixel-icon.trash {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/trash.svg");
+}
+
+.shortpixel-icon.webp_avif {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/webp_avif.svg");
+}
+
+.shortpixel-icon.photo {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/photo.svg");
+}
+
+.shortpixel-icon.ok {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/ok.svg");
+}
+
+.shortpixel-icon.warning {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/warning.svg");
+}
+
+.shortpixel-icon.key {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/key.svg");
+}
+
+.shortpixel-icon.save {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/save.svg");
+}
+
+.shortpixel-icon.switch {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/switch.svg");
+}
+
+.shortpixel-icon.help-circle {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/help-circle.svg");
+}
+
+.shortpixel-icon.user {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/user.svg");
+}
+
+.shortpixel-icon.shortpixel {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/shortpixel.svg");
+}
+
+.shortpixel-icon.star {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/icon/star.svg");
+}
+
+.shortpixel-illustration {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}
+.shortpixel-illustration.wizzard-done {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/illustration/wizzard-done.svg");
+  width: 70px;
+  height: 70px;
+}
+.shortpixel-illustration.cocktail {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/images/illustration/cocktail.svg");
+  height: 104px;
+  width: 60px;
+}
+
+.fixed .column-wp-spio-ai {
+  width: 5.5em;
+}
+
+.sp-column-info {
+  position: relative;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper {
+  background: #fff;
+  padding: 8px;
+  border: 1px solid #ccc;
+  max-width: 360px;
+  position: absolute;
+  display: none;
+  z-index: 10;
+  transition: all 1s;
+  box-sizing: border-box;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb {
+  position: relative;
+  width: 100%;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb .thumb-name {
+  overflow: hidden;
+  max-width: 200px;
+  white-space: nowrap;
+  display: inline-block;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb .optimize-bar {
+  float: right;
+  margin-left: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 4px;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb .optimize-bar .point {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: #d6d8d9;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb .optimize-bar .point.checked {
+  background: #1ABDCA;
+}
+.sp-column-info .thumbnails.optimized .thumb-wrapper .thumb .cutoff {
+  float: right;
+}
+.sp-column-info .thumbnails.optimized:hover .thumb-wrapper {
+  display: block;
+}
+.sp-column-info .sp-column-actions {
+  margin: 0 4px;
+  position: relative;
+}
+.sp-column-info .thumbs-todo {
+  position: relative;
+}
+.sp-column-info .thumbs-todo span {
+  display: none;
+}
+.sp-column-info .thumbs-todo h4:hover ~ span {
+  display: inline-block;
+}
+.sp-column-info h4 {
+  margin: 0;
+}
+.sp-column-info .shortpixel-image-error, .sp-column-info .shortpixel-image-notice {
+  display: block;
+  border: 1px solid #ff0000;
+  padding: 12px;
+  margin: 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+.sp-column-info .shortpixel-image-error .shortpixel-error-reset, .sp-column-info .shortpixel-image-notice .shortpixel-error-reset {
+  font-weight: 500;
+  font-size: 12px;
+  display: block;
+}
+.sp-column-info .shortpixel-image-notice {
+  border: 1px solid #000;
+}
+.sp-column-info .statusText i {
+  margin-left: 4px;
+}
+
+.column-wp-shortPixel .message {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 12px 0;
+}
+.column-wp-shortPixel .message img {
+  animation: cssload-spin 5000ms infinite linear;
+  -o-animation: cssload-spin 5000ms infinite linear;
+  -ms-animation: cssload-spin 5000ms infinite linear;
+  -webkit-animation: cssload-spin 5000ms infinite linear;
+  -moz-animation: cssload-spin 5000ms infinite linear;
+  vertical-align: top;
+}
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading-spin {
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading-spin {
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading-spin {
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/** Style for Grid view popups */
+.shortpixel-popup-info {
+  display: flex;
+  clear: both;
+  border-top: 1px solid #dcdcde;
+  margin: 12px 0;
+}
+.shortpixel-popup-info label {
+  min-width: 30%;
+  text-align: right;
+  margin-right: 4%;
+  padding-top: 4px;
+}
+.shortpixel-popup-info > div {
+  padding-left: 8px;
+  padding-bottom: 8px;
+}
+.media-sidebar .shortpixel-popup-info {
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+
+.edit-attachment-frame .shortpixel-popup-info {
+  border: 0;
+}
+
+div.sp-modal-shade {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top - blame WP-admin for the z-index battle . */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  opacity: 0.4;
+}
+
+div.shortpixel-modal {
+  background-color: #fefefe;
+  /*margin: 8% auto;  15% from the top and centered */
+  padding: 20px;
+  width: 30%; /* Could be more or less, depending on screen size */
+  min-width: 300px; /* Could be more or less, depending on screen size */
+  z-index: 999999; /* Z-index wars :/ */
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+div.shortpixel-modal button.sp-close-button, div.shortpixel-modal button.sp-close-upgrade-button {
+  float: right;
+  margin-top: 0px;
+  background: transparent !important;
+  border: none;
+  font-size: 22px;
+  line-height: 10px;
+  color: #000 !important;
+  cursor: pointer;
+}
+div.shortpixel-modal .sptw-modal-spinner {
+  background-image: url("/wp-content/plugins/shortpixel-image-optimiser/res/img/spinner2.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+div.sp-modal-title {
+  font-size: 22px;
+  color: #3c434a;
+  text-transform: none;
+  font-weight: 400;
+}
+
+div.sp-modal-body {
+  margin-top: 10px;
+}
+
+#ngg_page_content .sp-modal-title button {
+  float: right;
+  margin-top: 0px;
+  background: transparent !important;
+  border: none;
+  font-size: 22px;
+  line-height: 10px;
+  color: #000 !important;
+  cursor: pointer;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+body.debug-model-active {
+  overflow: hidden;
+}
+
+.debugInfo .content.wrapper {
+  display: none;
+}
+.debugInfo .content.wrapper li strong {
+  margin-right: 15px;
+}
+.debugInfo .content.wrapper ul {
+  margin: 25px 0;
+}
+
+.debug-modal {
+  display: none;
+  width: 75%;
+  max-width: 90%;
+  height: auto;
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 20%;
+  top: 10%;
+  z-index: 10020;
+  display: none;
+  background: #ffffff;
+}
+.debug-modal.success {
+  border: 4px solid green;
+}
+.debug-modal.error {
+  border: 4px solid red;
+}
+.debug-modal.error h3 {
+  background-color: #ff0000;
+}
+.debug-modal .content-area {
+  background-color: #fff;
+}
+.debug-modal .modal_header {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 5px;
+  cursor: move;
+}
+.debug-modal .modal_header h3 {
+  margin: 0;
+  color: #444;
+  font-weight: 400;
+  padding: 0;
+  text-align: center;
+  text-shadow: none;
+  font-size: 16px;
+}
+.debug-modal .modal_header .modal_close {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: #444;
+}
+.debug-modal .modal_header .modal_close:hover {
+  cursor: pointer;
+  color: #111;
+}
+.debug-modal .content, .debug-modal .modal_content {
+  padding: 5px 15px 10px;
+  overflow-y: auto;
+}
+
+.debugModal_overlay {
+  background: #000;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  position: fixed;
+  opacity: 0.7;
+  z-index: 10000;
+  display: none;
+}
+
+.shortpixel-hide {
+  display: none !important;
+}
+
+.button-primary.optimize {
+  margin-bottom: 16px;
+}
+
+.switch_button, switch {
+  display: inline-block;
+}
+.switch_button label, switch label {
+  padding: 8px 5px;
+}
+.switch_button label:focus, switch label:focus {
+  outline: none;
+}
+.switch_button input[type=checkbox], switch input[type=checkbox] {
+  display: none;
+}
+.switch_button input[type=checkbox]:checked ~ .the_switch, switch input[type=checkbox]:checked ~ .the_switch {
+  background: #1ABDCA;
+}
+.switch_button input[type=checkbox]:checked ~ .the_switch:after, switch input[type=checkbox]:checked ~ .the_switch:after {
+  transform: translateX(19px);
+  background-color: #116C7E;
+}
+.switch_button input[type=checkbox]:disabled ~ .the_switch, switch input[type=checkbox]:disabled ~ .the_switch {
+  background: #d5d5d5;
+  pointer-events: none;
+}
+.switch_button input[type=checkbox]:disabled ~ .the_switch:after, switch input[type=checkbox]:disabled ~ .the_switch:after {
+  background: #bcbdbc;
+}
+.switch_button .the_switch, switch .the_switch {
+  margin: 8px 15px 8px 0;
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 40px;
+  background-color: #D7D7D7;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+.switch_button .the_switch:after, switch .the_switch:after {
+  position: absolute;
+  left: 2px;
+  bottom: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #A9A9A9;
+  transition: transform 0.4s;
+  content: "";
+}
+.switch_button .the_switch:focus, switch .the_switch:focus {
+  outline: none;
+}
+
+.adv_switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 19px;
+  bottom: 2px;
+  left: 20px;
+}
+.adv_switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.adv_switch .adv_slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #D7D7D7;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+.adv_switch .adv_slider::before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #A9A9A9;
+  border-radius: 50%;
+  transition: 0.4s;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.adv_switch .adv_slider::after {
+  position: absolute;
+  content: "OFF";
+  color: white;
+  font-size: 10px;
+  top: 9px;
+  transform: translateY(-50%);
+  right: 5px;
+  transition: 0.4s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
+.adv_switch input:checked + .adv_slider {
+  background-color: #00C898;
+}
+.adv_switch input:checked + .adv_slider::before {
+  transform: translateX(26px);
+  background-color: #fff;
+}
+.adv_switch input:checked + .adv_slider::after {
+  content: "ON";
+  left: 8px;
+  right: auto;
+}
+
+.shortpixel-ai-interface {
+  line-height: 1;
+  margin: 8px 0;
+}
+.shortpixel-ai-interface .shortpixel-ai-icon {
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  margin-top: -1px;
+}
+.shortpixel-ai-interface .shortpixel-ai-caption {
+  margin: 0 4px;
+}
+.shortpixel-ai-interface span {
+  vertical-align: middle;
+  margin: 0 4px;
+}
+.shortpixel-ai-interface .shortpixel-alt-messagebox {
+  margin: 4px 0;
+}
+.shortpixel-ai-interface.attachment-details-two-column-alt-text, .shortpixel-ai-interface.attachment-details-alt-text {
+  float: right;
+  width: 65%;
+}
+.shortpixel-ai-interface.attachment-details-two-column-alt-text img.ai, .shortpixel-ai-interface.attachment-details-alt-text img.ai {
+  margin-top: 5px;
+  float: left;
+}
+.shortpixel-ai-interface.attachment-details-two-column-alt-text img.shortpixel, .shortpixel-ai-interface.attachment-details-alt-text img.shortpixel {
+  margin-right: 10px;
+}
+.media-sidebar .shortpixel-ai-interface {
+  width: 100%;
+  text-align: right;
+}
+.media-sidebar .shortpixel-ai-interface img.shortpixel.shortpixel-ai-caption {
+  margin-right: 0px;
+}
+
+/*# sourceMappingURL=shortpixel-admin.css.map */

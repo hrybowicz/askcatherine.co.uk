@@ -1,0 +1,13 @@
+{
+    "slug": "TemplateAddon",
+    "name": "Templates",
+    "description": "Reusable backup configurations for repeated use.",
+    "version": "1.0.0",
+    "author": "Duplicator",
+    "authorURI": "https://duplicator.com/",
+    "addonURI": "",
+    "requiresWP": "",
+    "requiresPHP": "",
+    "requiresDuplcator": "",
+    "requiresAddons": ["ProBase"]
+}
