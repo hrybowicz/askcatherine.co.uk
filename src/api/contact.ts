@@ -55,7 +55,7 @@ export async function handleContact(request: Request, env: Env): Promise<Respons
   return new Response(
     JSON.stringify({
       success: true,
-      message: 'Your message has been sent. We'll be in touch soon.'
+      message: "Your message has been sent. We'll be in touch soon."
     }),
     {
       status: 200,
