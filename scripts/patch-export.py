@@ -16,6 +16,11 @@ MARKER = 'id="ask-contact-js"'
 
 CF7_SCRIPTS = ["swv-js", "contact-form-7-js-translations", "contact-form-7-js-before", "contact-form-7-js"]
 
+CONTACT_CSS = """<style id="ask-contact-css">
+.wpcf7 form .wpcf7-response-output { background: #fff; margin-bottom: 2em; }
+</style>
+"""
+
 CONTACT_JS = """<script id="ask-contact-js">
 document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
   var out = form.querySelector('.wpcf7-response-output');
@@ -129,12 +134,12 @@ UNUSED_EVERYWHERE = [
 # Only needed on pages that contain the matching element
 UNUSED_UNLESS = {
     "gb-carousel": ["generateblocks-carousel-js", "generateblocks-carousel-css"],
-    "wpcf7-form": ["contact-form-7-css", "cloudflare-turnstile-js", "cloudflare-turnstile-js-after", "ask-contact-js"],
+    "wpcf7-form": ["contact-form-7-css", "cloudflare-turnstile-js", "cloudflare-turnstile-js-after", "ask-contact-js", "ask-contact-css"],
 }
 
 
 def drop_handle(html: str, hid: str) -> str:
-    html = re.sub(r'<script[^>]*\bid="%s"[^>]*>.*?</script>\n?' % re.escape(hid), "", html, flags=re.S)
+    html = re.sub(r'<(script|style)[^>]*\bid="%s"[^>]*>.*?</\1>\n?' % re.escape(hid), "", html, flags=re.S)
     return re.sub(r'<link[^>]*\bid="%s"[^>]*>\n?' % re.escape(hid), "", html)
 
 
@@ -157,8 +162,11 @@ for page in ROOT.rglob("*.html"):
     original = html = page.read_text(encoding="utf-8")
     if "wpcf7-form" in html and MARKER not in html:
         html = patch(html)
-    elif MARKER in html:  # refresh the contact script on pages patched earlier
+    if MARKER in html:
+        # (Re)apply the current contact script and its CSS, so edits here reach pages patched earlier
         html = re.sub(r'<script id="ask-contact-js">.*?</script>\n', lambda m: CONTACT_JS, html, flags=re.S)
+        html = re.sub(r'<style id="ask-contact-css">.*?</style>\n', "", html, flags=re.S)
+        html = html.replace("</head>", CONTACT_CSS + "</head>", 1)
     html = strip_unused(absolute_seo_urls(remove_mailchimp(html)))
     if html != original:
         page.write_text(html, encoding="utf-8")
