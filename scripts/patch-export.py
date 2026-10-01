@@ -115,13 +115,48 @@ def make_404(template: str) -> str:
     return html[:a] + body + html[b:]
 
 
+# Scripts/styles with no remaining user on a static site, by WordPress handle id
+UNUSED_EVERYWHERE = [
+    "jquery-core-js", "jquery-migrate-js",          # only Mailchimp used jQuery
+    "breeze-lazy-js", "breeze-lazy-js-after",       # no .br-lazy images in the export
+    "akismet-frontend-js",                          # no Akismet server any more
+    "wp-hooks-js", "wp-i18n-js", "wp-i18n-js-after",  # only Contact Form 7 used these
+    "mailerlite_forms.css-css",                     # WP plugin forms; popup ships its own CSS
+    # Contact Form 7's own scripts (replaced by ask-contact-js); they error without wp.i18n
+    "swv-js", "contact-form-7-js-translations", "contact-form-7-js-before", "contact-form-7-js",
+]
+# Only needed on pages that contain the matching element
+UNUSED_UNLESS = {
+    "gb-carousel": ["generateblocks-carousel-js", "generateblocks-carousel-css"],
+    "wpcf7-form": ["contact-form-7-css", "cloudflare-turnstile-js", "cloudflare-turnstile-js-after", "ask-contact-js"],
+}
+
+
+def drop_handle(html: str, hid: str) -> str:
+    html = re.sub(r'<script[^>]*\bid="%s"[^>]*>.*?</script>\n?' % re.escape(hid), "", html, flags=re.S)
+    return re.sub(r'<link[^>]*\bid="%s"[^>]*>\n?' % re.escape(hid), "", html)
+
+
+def strip_unused(html: str) -> str:
+    for hid in UNUSED_EVERYWHERE:
+        html = drop_handle(html, hid)
+    for marker, handles in UNUSED_UNLESS.items():
+        if not re.search(r'class="[^"]*\b%s\b' % marker, html):
+            for hid in handles:
+                html = drop_handle(html, hid)
+    # Cloudflare bot-check snippet captured from the live site (Cloudflare injects a fresh one itself)
+    html = re.sub(r"<script>\(function\(\)\{function c\(\)[^<]*?challenge-platform.*?</script>\n?", "", html, flags=re.S)
+    # WordPress-only head links: XML-RPC, version number, shortlink
+    return re.sub(r'<link rel="(?:EditURI|shortlink)"[^>]*>\n?|<meta name="generator"[^>]*>\n?', "", html)
+
+
 for page in ROOT.rglob("*.html"):
     if page.name == "404.html":
         continue
     original = html = page.read_text(encoding="utf-8")
     if "wpcf7-form" in html and MARKER not in html:
         html = patch(html)
-    html = absolute_seo_urls(remove_mailchimp(html))
+    html = strip_unused(absolute_seo_urls(remove_mailchimp(html)))
     if html != original:
         page.write_text(html, encoding="utf-8")
         print("patched", page.relative_to(ROOT))
@@ -145,4 +180,4 @@ for css in ROOT.rglob("*.css"):
 # robots.txt: point crawlers at the sitemap; drop the 60-second crawl delay
 (ROOT / "robots.txt").write_text(f"User-agent: *\nDisallow:\n\nSitemap: {SITE}/sitemaps.xml\n", encoding="utf-8")
 
-(ROOT / "404.html").write_text(make_404((ROOT / "privacy-policy" / "index.html").read_text(encoding="utf-8")), encoding="utf-8")
+(ROOT / "404.html").write_text(strip_unused(make_404((ROOT / "privacy-policy" / "index.html").read_text(encoding="utf-8"))), encoding="utf-8")

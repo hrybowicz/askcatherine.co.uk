@@ -1,0 +1,5 @@
+# Theme, plugin and WordPress assets: URLs carry ?ver=, so cache for 30 days
+/wp-content/*
+  Cache-Control: public, max-age=2592000
+/wp-includes/*
+  Cache-Control: public, max-age=2592000
