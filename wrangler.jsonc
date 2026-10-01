@@ -1,20 +1,12 @@
 {
   "name": "askcatherine-co-uk",
-  "main": "src/index.ts",
   "compatibility_date": "2025-01-01",
   "workers_dev": true,
-  // No routes yet: deploys to *.workers.dev only, for inspection.
-  // Add askcatherine.co.uk as a Custom Domain at cutover.
+  // Static site only: no Worker code. The contact form posts straight to
+  // Formspree, which verifies Turnstile; the newsletter is MailerLite's popup.
+  // Custom domains (askcatherine.co.uk, www) are added in the dashboard at cutover.
   "assets": {
     "directory": "./public",
-    "binding": "ASSETS",
     "not_found_handling": "404-page"
-  },
-  "vars": {
-    "FORMSPREE_KEY": "f/maenvjzp",
-    "MAILERLITE_ACCOUNT": "2221166",
-    "MAILERLITE_GROUP_ID": "184728230005048385",
-    "TURNSTILE_SITEKEY": "0x4AAAAAABeUzqw5zqgnfDOd"
   }
-  // Secrets (set in dashboard, not here): TURNSTILE_SECRET, MAILERLITE_API_KEY
 }

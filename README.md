@@ -1,106 +1,38 @@
-# askcatherine.co.uk Cloudflare Worker
+# askcatherine.co.uk
 
-Static site deployment of askcatherine.co.uk to Cloudflare Workers with API handlers for contact forms and newsletter signup.
+Faithful static snapshot of the WordPress site (Simply Static export), served by
+Cloudflare Workers static assets. Redesign with Decap CMS to follow.
 
-## Setup
+## How it works
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+- `public/` is the Simply Static export, post-processed by `scripts/patch-export.py`.
+- Deploys automatically: Cloudflare Workers Builds runs `npx wrangler deploy` on every push to `master`.
+- No server code. `wrangler.jsonc` only configures the assets and the 404 page.
 
-2. **Set secrets (Wrangler will prompt for these during deploy):**
-   ```bash
-   npx wrangler secret put TURNSTILE_SECRET --env production
-   npx wrangler secret put MAILERLITE_API_KEY --env production
-   ```
+## Integrations
 
-3. **Static files:**
-   - Copy Simply Static export to `public/` directory
-   - All files will be served as static assets
+| What | How |
+|---|---|
+| Contact form (homepage, privacy policy) | Posts from the browser to Formspree form `maenvjzp`. Formspree verifies Cloudflare Turnstile (secret key in the Formspree form's CAPTCHA settings; widget hostnames in Cloudflare Turnstile) |
+| Newsletter | MailerLite Universal popup (account 2221166), loaded by MailerLite's own script |
+| Read more popups | GenerateBlocks Pro overlays (plugin JS/CSS in `public/wp-content/plugins/generateblocks-pro/dist/`) |
 
-## Development
+## Re-exporting from WordPress
 
-```bash
-npm run dev
-# Open http://localhost:8787
-```
+1. Export with Simply Static (relative URLs) and replace `public/` with the new export.
+2. Run `python3 scripts/patch-export.py`. It is safe to re-run. It:
+   - rewires the Contact Form 7 form to Formspree and removes CF7's WordPress-only scripts
+   - removes Mailchimp (superseded by MailerLite)
+   - makes canonical, Open Graph, Twitter and sitemap URLs absolute; rewrites `robots.txt`
+   - fixes the Archivo font URL (was the old Cloudways hostname)
+   - strips scripts with no use on a static site (jQuery, Akismet, Breeze lazy-load, i18n…)
+   - builds `404.html`
+3. Check locally with `npx wrangler dev`, then commit and push.
 
-## Deployment
+## Cutover checklist
 
-```bash
-npx wrangler deploy --env production
-```
-
-## Environment Variables
-
-### Public (vars in wrangler.jsonc)
-- `FORMSPREE_KEY`: Contact form submission endpoint
-- `MAILERLITE_ACCOUNT`: Account ID (2221166)
-- `MAILERLITE_GROUP_ID`: Audience group for newsletter signups
-- `TURNSTILE_SITEKEY`: CAPTCHA site key for contact form
-
-### Secrets (set via CLI)
-- `TURNSTILE_SECRET`: CAPTCHA verification secret
-- `MAILERLITE_API_KEY`: API key for subscriber management
-
-## API Routes
-
-### POST /api/contact
-Contact form handler with Turnstile CAPTCHA verification. Forwards to Formspree.
-
-**Request:**
-```
-multipart/form-data:
-- name: string
-- email: string
-- message: string
-- cf-turnstile-response: string (from widget)
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Your message has been sent. We'll be in touch soon."
-}
-```
-
-### POST /api/newsletter
-Newsletter signup handler. Subscribes email to MailerLite audience.
-
-**Request:**
-```json
-{
-  "email": "user@example.com"
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Welcome! Check your email to confirm."
-}
-```
-
-## DNS Configuration
-
-Once deployed and tested:
-1. Add custom domains in Cloudflare Workers
-2. Update DNS to point to Workers subdomain
-3. Keep MX/SPF/DKIM records unchanged
-
-## Post-Deployment Checklist
-
-- [ ] Contact form submission works
-- [ ] Newsletter signup works
-- [ ] All pages load from `public/`
-- [ ] Images and assets load correctly
-- [ ] CORS headers set for API routes
-- [ ] Turnstile verification functional
-- [ ] Formspree emails arriving
-
-## Phase 2: Decap CMS
-
-Future: Add Decap CMS for content editing via Git workflow.
+- Worker → Settings → Domains & Routes: add `askcatherine.co.uk` and `www.askcatherine.co.uk`.
+- Leave MX, SPF, DKIM and DMARC untouched (mail is on Proton Mail).
+- www → root redirect: see the Cloudflare runbook in the project.
+- Purge the Cloudflare cache; test pages, contact form and the MailerLite popup on the live domain.
+- Google Search Console: resubmit `https://askcatherine.co.uk/sitemaps.xml`.

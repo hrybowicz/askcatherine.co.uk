@@ -854,7 +854,7 @@ ai-workshop-headline {
 <div class="wp-block-contact-form-7-contact-form-selector">
 <div class="wpcf7 no-js" id="wpcf7-f94-p278-o1" lang="en-NZ" dir="ltr" data-wpcf7-id="94">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="/privacy-policy/?simply_static_page=5178#wpcf7-f94-p278-o1" method="post" class="wpcf7-form init" aria-label="Contact form" data-status="init">
+<form action="https://formspree.io/f/maenvjzp" method="post" class="wpcf7-form init" aria-label="Contact form" data-status="init">
 <fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="94"><input type="hidden" name="_wpcf7_version" value="6.1.7"><input type="hidden" name="_wpcf7_locale" value="en_NZ"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f94-p278-o1"><input type="hidden" name="_wpcf7_container_post" value="278"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
 </fieldset>
 <div class="wpcf7-turnstile cf-turnstile" data-sitekey="0x4AAAAAABeUzqw5zqgnfDOd" data-response-field-name="cf-turnstile-response"></div>
@@ -1297,9 +1297,12 @@ var generatepressBackToTop = {"smooth":true};
 <script id="generate-back-to-top-js" src="/wp-content/themes/generatepress/assets/js/back-to-top.min.js?ver=3.6.1"></script>
 
 <script id="ask-contact-js">
+// Posts straight to Formspree from the browser. Formspree verifies the Turnstile token itself
+// (Turnstile secret key is set in the Formspree form's CAPTCHA settings).
 document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
   var out = form.querySelector('.wpcf7-response-output');
   var btn = form.querySelector('input[type=submit]');
+  var val = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
@@ -1307,15 +1310,24 @@ document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
     form.classList.remove('init');  // CF7's CSS hides the response box while .init is set
     out.removeAttribute('aria-hidden');
     out.textContent = 'Sending…';
-    var ok = false;
+    var data = new FormData();
+    data.append('name', val('your-name'));
+    data.append('email', val('your-email'));
+    data.append('telephone', val('your-telephone'));
+    data.append('message', val('your-message'));
+    data.append('_subject', 'Website enquiry from ' + val('your-name'));
+    data.append('_gotcha', val('_wpcf7_ak_hp_textarea'));  // honeypot: only bots fill it
+    data.append('cf-turnstile-response', val('cf-turnstile-response'));
+    var ok = false, msg = '';
     try {
-      var res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
-      var data = await res.json();
-      ok = res.ok && data.success;
-      out.textContent = data.message || data.error || 'Something went wrong. Please try again.';
-    } catch (err) {
-      out.textContent = 'Something went wrong. Please try again, or email catherine@askcatherine.co.uk.';
-    }
+      var res = await fetch('https://formspree.io/f/maenvjzp', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      var body = await res.json().catch(function () { return {}; });
+      ok = res.ok;
+      if (!ok && body.errors) msg = body.errors.map(function (x) { return x.message; }).join(' ');
+    } catch (err) {}
+    out.textContent = ok
+      ? 'Thank you. Your message has been sent and Catherine will be in touch soon.'
+      : "Sorry, your message couldn't be sent" + (msg ? ' (' + msg + ')' : '') + '. Please try again, or email catherine@askcatherine.co.uk.';
     form.setAttribute('data-status', ok ? 'sent' : 'failed');
     form.classList.toggle('sent', ok);
     form.classList.toggle('failed', !ok);

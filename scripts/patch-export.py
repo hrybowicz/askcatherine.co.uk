@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Post-process the Simply Static export in public/.
 
-1. Rewire the Contact Form 7 form to /api/contact (Turnstile + Formspree).
+1. Rewire the Contact Form 7 form to post to Formspree from the browser
+   (Formspree verifies Turnstile).
 2. Remove Mailchimp completely (superseded by MailerLite): the orphaned
    "Join my newsletter" overlay and its custom CSS.
 
@@ -21,10 +22,15 @@ CONTACT_CSS = """<style id="ask-contact-css">
 </style>
 """
 
+FORMSPREE = "https://formspree.io/f/maenvjzp"
+
 CONTACT_JS = """<script id="ask-contact-js">
+// Posts straight to Formspree from the browser. Formspree verifies the Turnstile token itself
+// (Turnstile secret key is set in the Formspree form's CAPTCHA settings).
 document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
   var out = form.querySelector('.wpcf7-response-output');
   var btn = form.querySelector('input[type=submit]');
+  var val = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
@@ -32,15 +38,24 @@ document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
     form.classList.remove('init');  // CF7's CSS hides the response box while .init is set
     out.removeAttribute('aria-hidden');
     out.textContent = 'Sending…';
-    var ok = false;
+    var data = new FormData();
+    data.append('name', val('your-name'));
+    data.append('email', val('your-email'));
+    data.append('telephone', val('your-telephone'));
+    data.append('message', val('your-message'));
+    data.append('_subject', 'Website enquiry from ' + val('your-name'));
+    data.append('_gotcha', val('_wpcf7_ak_hp_textarea'));  // honeypot: only bots fill it
+    data.append('cf-turnstile-response', val('cf-turnstile-response'));
+    var ok = false, msg = '';
     try {
-      var res = await fetch('/api/contact', { method: 'POST', body: new FormData(form) });
-      var data = await res.json();
-      ok = res.ok && data.success;
-      out.textContent = data.message || data.error || 'Something went wrong. Please try again.';
-    } catch (err) {
-      out.textContent = 'Something went wrong. Please try again, or email catherine@askcatherine.co.uk.';
-    }
+      var res = await fetch('""" + FORMSPREE + """', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      var body = await res.json().catch(function () { return {}; });
+      ok = res.ok;
+      if (!ok && body.errors) msg = body.errors.map(function (x) { return x.message; }).join(' ');
+    } catch (err) {}
+    out.textContent = ok
+      ? 'Thank you. Your message has been sent and Catherine will be in touch soon.'
+      : "Sorry, your message couldn't be sent" + (msg ? ' (' + msg + ')' : '') + '. Please try again, or email catherine@askcatherine.co.uk.';
     form.setAttribute('data-status', ok ? 'sent' : 'failed');
     form.classList.toggle('sent', ok);
     form.classList.toggle('failed', !ok);
@@ -83,7 +98,7 @@ def remove_mailchimp(html: str) -> str:
 def patch(html: str) -> str:
     for sid in CF7_SCRIPTS:
         html = re.sub(r'<script[^>]*id="%s"[^>]*>.*?</script>\s*' % re.escape(sid), "", html, flags=re.S)
-    html = re.sub(r'action="/\?simply_static_page=[^"]*#wpcf7-[^"]*"', 'action="/api/contact"', html)
+    html = re.sub(r'action="[^"]*\?simply_static_page=[^"]*#wpcf7-[^"]*"', 'action="%s"' % FORMSPREE, html)
     html = html.replace('data-response-field-name="_wpcf7_turnstile_response"', 'data-response-field-name="cf-turnstile-response"')
     # Required fields get native browser validation (CF7's JS used to do this)
     html = re.sub(r'(<(?:input|textarea)[^>]*aria-required="true")', r"\1 required", html)
