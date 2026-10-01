@@ -25,6 +25,7 @@ Cloudflare Workers static assets. Redesign with Decap CMS to follow.
    - removes Mailchimp (superseded by MailerLite)
    - makes canonical, Open Graph, Twitter and sitemap URLs absolute; rewrites `robots.txt`
    - fixes the Archivo font URL (was the old Cloudways hostname)
+   - removes the menu search (WordPress search needs a server)
    - strips scripts with no use on a static site (jQuery, Akismet, Breeze lazy-load, i18n…)
    - builds `404.html`
 3. Check locally with `npx wrangler dev`, then commit and push.

@@ -158,6 +158,16 @@ def drop_handle(html: str, hid: str) -> str:
     return re.sub(r'<link[^>]*\bid="%s"[^>]*>\n?' % re.escape(hid), "", html)
 
 
+def remove_search(html: str) -> str:
+    """WordPress search (/?s=) needs a server; the site is static and only ~14 pages."""
+    html = re.sub(r'<form method="get" class="search-form navigation-search"[^>]*>.*?</form>', "", html, flags=re.S)
+    html = re.sub(r'<li class="search-item[^"]*">.*?</li>', "", html, flags=re.S)
+    html = re.sub(r'<span class="search-item">\s*<a [^>]*>.*?</a>\s*</span>', "", html, flags=re.S)
+    for hid in ("generate-navigation-search-js-before", "generate-navigation-search-js"):
+        html = drop_handle(html, hid)
+    return html
+
+
 def strip_unused(html: str) -> str:
     for hid in UNUSED_EVERYWHERE:
         html = drop_handle(html, hid)
@@ -168,6 +178,7 @@ def strip_unused(html: str) -> str:
     # Cloudflare bot-check snippet captured from the live site (Cloudflare injects a fresh one itself)
     html = re.sub(r"<script>\(function\(\)\{function c\(\)[^<]*?challenge-platform.*?</script>\n?", "", html, flags=re.S)
     # WordPress-only head links: XML-RPC, version number, shortlink
+    html = remove_search(html)
     return re.sub(r'<link rel="(?:EditURI|shortlink)"[^>]*>\n?|<meta name="generator"[^>]*>\n?', "", html)
 
 
