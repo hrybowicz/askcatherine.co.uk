@@ -202,6 +202,9 @@ for page in ROOT.rglob("*.html"):
 for sitemap in ROOT.glob("*sitemap*.xml"):
     xml = sitemap.read_text(encoding="utf-8")
     fixed = re.sub(r"<(loc|image:loc)>/", r"<\1>" + SITE + "/", xml)
+    # Simply Static gave the index its own XSL, which only lists <urlset> pages, so the
+    # index displayed as an empty table. sitemaps_xsl.xsl (as on WordPress) handles both.
+    fixed = fixed.replace('href="/main-sitemap.xsl"', 'href="/sitemaps_xsl.xsl"')
     if fixed != xml:
         sitemap.write_text(fixed, encoding="utf-8")
         print("patched", sitemap.name)
