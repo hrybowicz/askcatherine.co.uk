@@ -19,6 +19,7 @@ CF7_SCRIPTS = ["swv-js", "contact-form-7-js-translations", "contact-form-7-js-be
 
 CONTACT_CSS = """<style id="ask-contact-css">
 .wpcf7 form .wpcf7-response-output { background: #fff; margin-bottom: 2em; }
+.wpcf7 form.wpcf7-form { display: flow-root; } /* keep that margin inside the panel instead of collapsing through it */
 </style>
 """
 
