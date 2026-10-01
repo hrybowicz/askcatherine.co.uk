@@ -204,6 +204,8 @@ for page in ROOT.rglob("*.html"):
     html = re.sub(r'<style id="ask-services-css">.*?</style>\n', "", html, flags=re.S)
     if 'class="mh-content-container-services"' in html:
         html = html.replace("</head>", SERVICES_CSS + "</head>", 1)
+    # Stray line break at the start of a services-card paragraph (the AI card, from the WordPress editor)
+    html = re.sub(r'(<div class="mh-content-container-services">\s*<h3\b.*?</h3>\s*<p\b[^>]*>)\s*<br\s*/?>\s*', r"\1", html, flags=re.S)
     html = strip_unused(absolute_seo_urls(remove_mailchimp(html)))
     if html != original:
         page.write_text(html, encoding="utf-8")
