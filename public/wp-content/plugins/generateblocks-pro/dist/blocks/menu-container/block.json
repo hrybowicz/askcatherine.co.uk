@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/menu-container",
+  "title": "Menu Container",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "The container for the classic menu block.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "aside",
+        "nav"
+      ]
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": false,
+    "inserter": false,
+    "className": false
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "usesContext": [
+    "generateblocks-pro/navigation/htmlAttributes"
+  ]
+}

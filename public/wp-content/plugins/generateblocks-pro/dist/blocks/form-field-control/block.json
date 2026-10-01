@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/form-field-control",
+  "title": "Form Field Control",
+  "category": "generateblocks",
+  "ancestor": [
+    "generateblocks-pro/form-field"
+  ],
+  "description": "A form field control.",
+  "keywords": [
+    "form",
+    "input",
+    "control",
+    "select",
+    "textarea",
+    "checkbox",
+    "radio"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "rows": {
+      "type": "string",
+      "default": ""
+    },
+    "options": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checkedValue": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultValue": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "usesContext": [
+    "generateblocks-pro/form-field/fieldType",
+    "generateblocks-pro/form-field/fieldName",
+    "generateblocks-pro/form-field/isRequired",
+    "generateblocks-pro/form-field/uniqueId"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/site-header",
+  "title": "Site Header",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "The container for your site header.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "aside",
+        "nav",
+        "header"
+      ]
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

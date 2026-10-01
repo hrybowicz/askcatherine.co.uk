@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/tab-item",
+  "title": "Tab Item",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "Contains the content of a tab item.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "ul",
+        "ol",
+        "li"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "tabItemOpen": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "parent": [
+    "generateblocks-pro/tab-items"
+  ],
+  "editorScript": [
+    "file:./index.js"
+  ]
+}

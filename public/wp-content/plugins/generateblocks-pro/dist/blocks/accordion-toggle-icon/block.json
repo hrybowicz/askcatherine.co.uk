@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/accordion-toggle-icon",
+  "title": "Accordion Toggle Icon",
+  "category": "generateblocks",
+  "parent": [
+    "generateblocks-pro/accordion-toggle"
+  ],
+  "icon": "star",
+  "description": "The open and close icon for the accordion toggle.",
+  "keywords": [
+    "accordion"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "span"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "openIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-accordion__toggle-icon-open"
+    },
+    "closeIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-accordion__toggle-icon-close"
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "editorScript": "file:./index.js"
+}

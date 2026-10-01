@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/accordion-toggle",
+  "title": "Accordion Toggle",
+  "category": "generateblocks",
+  "parent": [
+    "generateblocks-pro/accordion-item"
+  ],
+  "icon": "star",
+  "description": "The clickable toggle that opens the accordion content.",
+  "keywords": [
+    "accordion"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "button"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "editorScript": "file:./index.js",
+  "usesContext": [
+    "generateblocks/accordion/openByDefault"
+  ]
+}

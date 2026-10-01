@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/accordion-item",
+  "title": "Accordion Item",
+  "category": "generateblocks",
+  "parent": [
+    "generateblocks-pro/accordion"
+  ],
+  "icon": "star",
+  "description": "The accordion item wrapper.",
+  "keywords": [
+    "accordion"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "aside",
+        "li"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "openByDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "editorScript": "file:./index.js",
+  "providesContext": {
+    "generateblocks/accordion/openByDefault": "openByDefault"
+  },
+  "usesContext": [
+    "generateblocks/accordion/htmlAttributes"
+  ]
+}

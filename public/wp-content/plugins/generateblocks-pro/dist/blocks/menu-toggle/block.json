@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/menu-toggle",
+  "title": "Menu Toggle",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "The toggle button for the menu block.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "ancestor": [
+    "generateblocks-pro/navigation"
+  ],
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "openIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-menu-open-icon"
+    },
+    "closeIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-menu-close-icon"
+    },
+    "iconLocation": {
+      "type": "string",
+      "default": "before"
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "button"
+      ]
+    },
+    "content": {
+      "type": "rich-text",
+      "source": "rich-text",
+      "selector": ".gb-menu-toggle-text",
+      "role": "content"
+    },
+    "iconOnly": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "inserter": true
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

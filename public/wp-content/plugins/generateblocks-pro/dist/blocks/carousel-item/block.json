@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/carousel-item",
+  "title": "Carousel Item",
+  "category": "generateblocks",
+  "parent": [
+    "generateblocks-pro/carousel-items"
+  ],
+  "icon": "star",
+  "description": "A single carousel slide item.",
+  "keywords": [
+    "carousel",
+    "slide",
+    "item"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "article",
+        "aside",
+        "header",
+        "footer",
+        "nav",
+        "main",
+        "figure",
+        "a",
+        "ul",
+        "ol",
+        "li",
+        "dl",
+        "dt",
+        "dd"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "editorScript": "file:./index.js"
+}

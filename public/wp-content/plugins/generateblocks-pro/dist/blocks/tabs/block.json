@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/tabs",
+  "title": "Tabs",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "Display content in a set of tabs.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "aside",
+        "nav",
+        "ul",
+        "ol",
+        "li"
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "showTemplateSelector": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorStyle": [
+    "file:./tabs.css",
+    "file:./index.css"
+  ],
+  "editorScript": [
+    "file:./index.js",
+    "file:./tabs.js"
+  ]
+}

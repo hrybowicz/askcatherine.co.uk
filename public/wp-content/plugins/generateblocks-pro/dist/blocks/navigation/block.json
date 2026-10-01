@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/navigation",
+  "title": "Navigation",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "The container for the navigation block.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "aside",
+        "nav"
+      ]
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "subMenuType": {
+      "type": "string",
+      "default": "hover"
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "providesContext": {
+    "generateblocks-pro/subMenuType": "subMenuType",
+    "generateblocks-pro/navigation/htmlAttributes": "htmlAttributes"
+  }
+}

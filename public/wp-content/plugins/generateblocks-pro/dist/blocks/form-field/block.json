@@ -1,0 +1,124 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/form-field",
+  "title": "Form Field",
+  "category": "generateblocks",
+  "ancestor": [
+    "generateblocks-pro/form"
+  ],
+  "description": "A form input field.",
+  "keywords": [
+    "form",
+    "input",
+    "field",
+    "email",
+    "text",
+    "select",
+    "checkbox",
+    "textarea",
+    "radio"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "fieldType": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "text",
+        "email",
+        "url",
+        "tel",
+        "number",
+        "hidden",
+        "textarea",
+        "select",
+        "checkbox",
+        "radio",
+        "checkbox-group"
+      ]
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "div",
+        "fieldset"
+      ]
+    },
+    "fieldName": {
+      "type": "string",
+      "default": ""
+    },
+    "isRequired": {
+      "type": "boolean",
+      "default": false
+    },
+    "matchesField": {
+      "type": "string",
+      "default": ""
+    },
+    "conditions": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "operator": {
+            "type": "string",
+            "enum": [
+              "is",
+              "isnot",
+              "isempty",
+              "isnotempty"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "providesContext": {
+    "generateblocks-pro/form-field/fieldType": "fieldType",
+    "generateblocks-pro/form-field/fieldName": "fieldName",
+    "generateblocks-pro/form-field/isRequired": "isRequired",
+    "generateblocks-pro/form-field/uniqueId": "uniqueId"
+  }
+}

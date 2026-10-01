@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/classic-menu",
+  "title": "Menu",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "Displays a classic WordPress menu.",
+  "keywords": [
+    "alert",
+    "message"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "parent": [
+    "generateblocks-pro/menu-container"
+  ],
+  "attributes": {
+    "menu": {
+      "type": "string",
+      "default": ""
+    },
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "align": false,
+    "inserter": false
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "providesContext": {
+    "generateblocks-pro/menu-unique-id": "uniqueId"
+  },
+  "usesContext": [
+    "generateblocks-pro/subMenuType"
+  ]
+}

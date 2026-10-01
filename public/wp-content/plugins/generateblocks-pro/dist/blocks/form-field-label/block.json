@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/form-field-label",
+  "title": "Form Field Label",
+  "category": "generateblocks",
+  "parent": [
+    "generateblocks-pro/form-field"
+  ],
+  "description": "A form field label.",
+  "keywords": [
+    "form",
+    "label",
+    "legend"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "tagName": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": "",
+      "role": "content"
+    },
+    "icon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-shape"
+    },
+    "iconLocation": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "usesContext": [
+    "generateblocks-pro/form-field/fieldType",
+    "generateblocks-pro/form-field/fieldName",
+    "generateblocks-pro/form-field/isRequired",
+    "generateblocks-pro/form-field/uniqueId"
+  ]
+}

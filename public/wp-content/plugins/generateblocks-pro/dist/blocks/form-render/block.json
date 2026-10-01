@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/form-render",
+  "title": "Form",
+  "category": "generateblocks",
+  "description": "Embed a Form.",
+  "keywords": [
+    "form",
+    "contact",
+    "email"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "formId": {
+      "type": "integer"
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "customClassName": false,
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

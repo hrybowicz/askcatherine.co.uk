@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/carousel-pagination",
+  "title": "Carousel Pagination",
+  "category": "generateblocks",
+  "icon": "star",
+  "description": "Display pagination controls for a carousel (dots, fraction, or progress bar).",
+  "keywords": [
+    "carousel",
+    "pagination",
+    "dots",
+    "navigation",
+    "progress",
+    "indicator"
+  ],
+  "version": "1.0.0",
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "div",
+        "section",
+        "article",
+        "aside",
+        "header",
+        "footer",
+        "nav",
+        "main",
+        "figure",
+        "a",
+        "ul",
+        "ol",
+        "li",
+        "dl",
+        "dt",
+        "dd"
+      ]
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "ancestor": [
+    "generateblocks-pro/carousel"
+  ],
+  "supports": {
+    "align": false,
+    "className": false
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "usesContext": [
+    "generateblocks/carousel/htmlAttributes"
+  ]
+}

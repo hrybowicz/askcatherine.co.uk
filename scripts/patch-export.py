@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Rewire the Contact Form 7 form in the Simply Static export to /api/contact.
+"""Post-process the Simply Static export in public/.
 
-Safe to re-run after a fresh export: pages already patched are skipped.
-Usage: python3 scripts/patch-forms.py
+1. Rewire the Contact Form 7 form to /api/contact (Turnstile + Formspree).
+2. Remove Mailchimp completely (superseded by MailerLite): the orphaned
+   "Join my newsletter" overlay and its custom CSS.
+
+Safe to re-run after a fresh export: each step skips pages already done.
+Usage: python3 scripts/patch-export.py
 """
 import pathlib
 import re
@@ -43,6 +47,33 @@ document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
 """
 
 
+MAILCHIMP_CSS = [("/* MH newsletter form */", ".mh-purple {"), ("/* Mailchimp form */", "/* overlay box */")]
+
+
+def remove_element(html: str, start: int) -> str:
+    """Remove the <div> starting at `start`, including everything nested in it."""
+    depth, i = 0, start
+    for m in re.finditer(r"<(/?)div\b[^>]*>", html[start:]):
+        depth += -1 if m.group(1) else 1
+        if depth == 0:
+            end = start + m.end()
+            return html[:start] + html[end:]
+    raise ValueError("unbalanced <div> at %d" % start)
+
+
+def remove_mailchimp(html: str) -> str:
+    shell = html.find('<div id="mc_embed_shell">')
+    if shell != -1:
+        overlay = html.rfind('<div id="gb-overlay-', 0, shell)
+        html = remove_element(html, overlay)
+    for begin, until in MAILCHIMP_CSS:
+        a = html.find(begin)
+        b = html.find(until, a)
+        if a != -1 and b != -1:
+            html = html[:a] + html[b:]
+    return html
+
+
 def patch(html: str) -> str:
     for sid in CF7_SCRIPTS:
         html = re.sub(r'<script[^>]*id="%s"[^>]*>.*?</script>\s*' % re.escape(sid), "", html, flags=re.S)
@@ -55,8 +86,10 @@ def patch(html: str) -> str:
 
 
 for page in ROOT.rglob("*.html"):
-    html = page.read_text(encoding="utf-8")
-    if "wpcf7-form" not in html or MARKER in html:
-        continue
-    page.write_text(patch(html), encoding="utf-8")
-    print("patched", page.relative_to(ROOT))
+    original = html = page.read_text(encoding="utf-8")
+    if "wpcf7-form" in html and MARKER not in html:
+        html = patch(html)
+    html = remove_mailchimp(html)
+    if html != original:
+        page.write_text(html, encoding="utf-8")
+        print("patched", page.relative_to(ROOT))

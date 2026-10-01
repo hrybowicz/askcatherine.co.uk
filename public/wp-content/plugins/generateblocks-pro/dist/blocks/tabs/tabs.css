@@ -1,0 +1,1 @@
+.gb-tabs__item{display:none}.gb-tabs__item.gb-tabs__item-open{display:block}:where(:not(button)).gb-tabs__menu-item{cursor:pointer}:where(.gb-tabs[data-transition=fade] .gb-tabs__item-open){opacity:1}:where(.gb-tabs[data-transition=fade] .gb-tabs__item-transition){opacity:0}:where(.gb-tabs[data-transition=fade] .gb-tabs__item){transition:opacity .25s ease}

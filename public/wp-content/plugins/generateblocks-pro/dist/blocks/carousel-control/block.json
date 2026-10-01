@@ -1,0 +1,91 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "generateblocks-pro/carousel-control",
+  "title": "Carousel Control",
+  "category": "generateblocks",
+  "description": "Add navigation controls for carousels.",
+  "ancestor": [
+    "generateblocks-pro/carousel"
+  ],
+  "keywords": [
+    "carousel",
+    "control",
+    "navigation",
+    "generateblocks"
+  ],
+  "textdomain": "generateblocks-pro",
+  "attributes": {
+    "uniqueId": {
+      "type": "string",
+      "default": ""
+    },
+    "controlType": {
+      "type": "string",
+      "default": ""
+    },
+    "openIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-carousel-control-icon:not(.gb-carousel-control-icon--alt)"
+    },
+    "closeIcon": {
+      "type": "string",
+      "source": "html",
+      "selector": ".gb-carousel-control-icon--alt"
+    },
+    "iconLocation": {
+      "type": "string",
+      "default": "before"
+    },
+    "iconOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "type": "rich-text",
+      "source": "rich-text",
+      "selector": ".gb-carousel-control-text",
+      "role": "content"
+    },
+    "carouselId": {
+      "type": "string",
+      "default": ""
+    },
+    "tagName": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "button",
+        "a"
+      ]
+    },
+    "htmlAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    },
+    "globalClasses": {
+      "type": "array",
+      "default": []
+    },
+    "css": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": false,
+    "className": false,
+    "inserter": true
+  },
+  "editorScript": [
+    "file:./index.js"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}
