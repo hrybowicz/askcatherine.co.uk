@@ -47,10 +47,15 @@ export async function handleContact(request: Request, env: Env): Promise<Respons
 
   const sent = await fetch(`https://formspree.io/${env.FORMSPREE_KEY}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    // Server-side request: no browser Referer, which Formspree's "Restrict to
+    // Domain" treats as spam. Turnstile has already verified the visitor.
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json', Referer: 'https://askcatherine.co.uk/' },
     body: JSON.stringify({ name, email, telephone, message, _replyto: email, _subject: `Website enquiry from ${name}` })
   });
-  if (!sent.ok) return json({ error: FAIL }, 502);
+  if (!sent.ok) {
+    console.log('Formspree rejected submission', sent.status, await sent.text());
+    return json({ error: FAIL }, 502);
+  }
 
   return json({ success: true, message: "Thank you. Your message has been sent and Catherine will be in touch soon." });
 }

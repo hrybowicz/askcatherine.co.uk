@@ -24,6 +24,7 @@ document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
     e.preventDefault();
     if (!form.reportValidity()) return;
     btn.disabled = true;
+    form.classList.remove('init');  // CF7's CSS hides the response box while .init is set
     out.removeAttribute('aria-hidden');
     out.textContent = 'Sending…';
     var ok = false;
@@ -156,6 +157,8 @@ for page in ROOT.rglob("*.html"):
     original = html = page.read_text(encoding="utf-8")
     if "wpcf7-form" in html and MARKER not in html:
         html = patch(html)
+    elif MARKER in html:  # refresh the contact script on pages patched earlier
+        html = re.sub(r'<script id="ask-contact-js">.*?</script>\n', lambda m: CONTACT_JS, html, flags=re.S)
     html = strip_unused(absolute_seo_urls(remove_mailchimp(html)))
     if html != original:
         page.write_text(html, encoding="utf-8")

@@ -1267,6 +1267,7 @@ document.querySelectorAll('form.wpcf7-form').forEach(function (form) {
     e.preventDefault();
     if (!form.reportValidity()) return;
     btn.disabled = true;
+    form.classList.remove('init');  // CF7's CSS hides the response box while .init is set
     out.removeAttribute('aria-hidden');
     out.textContent = 'Sending…';
     var ok = false;
