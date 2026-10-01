@@ -25,6 +25,13 @@ CONTACT_CSS = """<style id="ask-contact-css">
 
 FORMSPREE = "https://formspree.io/f/maenvjzp"
 
+SERVICES_CSS = """<style id="ask-services-css">
+/* Services at a glance: pin each card's "read more" button to the bottom of the card */
+.mh-content-container-services { display: flex; flex-direction: column; }
+.mh-content-container-services > :has(> .mh-butoon-one) { margin-top: auto; padding-top: 2rem; }
+</style>
+"""
+
 CONTACT_JS = """<script id="ask-contact-js">
 // Posts straight to Formspree from the browser. Formspree verifies the Turnstile token itself
 // (Turnstile secret key is set in the Formspree form's CAPTCHA settings).
@@ -194,6 +201,9 @@ for page in ROOT.rglob("*.html"):
         html = re.sub(r'<script id="ask-contact-js">.*?</script>\n', lambda m: CONTACT_JS, html, flags=re.S)
         html = re.sub(r'<style id="ask-contact-css">.*?</style>\n', "", html, flags=re.S)
         html = html.replace("</head>", CONTACT_CSS + "</head>", 1)
+    html = re.sub(r'<style id="ask-services-css">.*?</style>\n', "", html, flags=re.S)
+    if 'class="mh-content-container-services"' in html:
+        html = html.replace("</head>", SERVICES_CSS + "</head>", 1)
     html = strip_unused(absolute_seo_urls(remove_mailchimp(html)))
     if html != original:
         page.write_text(html, encoding="utf-8")
