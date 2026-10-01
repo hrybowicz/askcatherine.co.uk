@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
 <sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>/post-sitemap1.xml</loc>
+<loc>https://askcatherine.co.uk/post-sitemap1.xml</loc>
 <lastmod>2025-12-22T06:37:05+13:00</lastmod>
 </sitemap>
 <sitemap>
-<loc>/page-sitemap1.xml</loc>
+<loc>https://askcatherine.co.uk/page-sitemap1.xml</loc>
 <lastmod>2026-09-14T05:39:58+12:00</lastmod>
 </sitemap>
 <sitemap>
-<loc>/category-sitemap1.xml</loc>
+<loc>https://askcatherine.co.uk/category-sitemap1.xml</loc>
 </sitemap>
 </sitemapindex>

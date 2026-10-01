@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/sitemaps_xsl.xsl"?><urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>/</loc>
+<loc>https://askcatherine.co.uk/</loc>
 <lastmod>2026-09-14T05:39:58+12:00</lastmod>
 <image:image>
 <image:loc><![CDATA[/wp-content/uploads/2022/09/CD-472.jpg]]></image:loc>
@@ -18,8 +18,8 @@
 <image:loc><![CDATA[/wp-content/uploads/2025/12/IMG_0936.jpeg]]></image:loc>
 </image:image></url>
 <url>
-<loc>/ai-workshop/</loc>
+<loc>https://askcatherine.co.uk/ai-workshop/</loc>
 <lastmod>2026-09-07T03:32:12+12:00</lastmod></url>
 <url>
-<loc>/privacy-policy/</loc>
+<loc>https://askcatherine.co.uk/privacy-policy/</loc>
 <lastmod>2026-02-06T02:17:49+13:00</lastmod></url></urlset>

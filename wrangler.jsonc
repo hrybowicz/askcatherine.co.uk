@@ -7,7 +7,8 @@
   // Add askcatherine.co.uk as a Custom Domain at cutover.
   "assets": {
     "directory": "./public",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
   },
   "vars": {
     "FORMSPREE_KEY": "f/maenvjzp",
