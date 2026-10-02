@@ -185,6 +185,17 @@ ai-workshop-headline {
 .wpcf7 form .wpcf7-response-output { background: #fff; margin-bottom: 2em; }
 .wpcf7 form.wpcf7-form { display: flow-root; } /* keep that margin inside the panel instead of collapsing through it */
 </style>
+<style id="ask-menu-css">
+/* Mobile menu: the open menu had no background (unreadable over the hero photo),
+   default blue links, and the white logo vanished once a background was added */
+@media (max-width: 768px) {
+  .main-navigation.toggled { background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); position: relative; z-index: 1000; }
+  .main-navigation.toggled .navigation-branding .main-title a,
+  .main-navigation.toggled .main-nav a { color: #8834FD; }
+  .main-navigation.toggled .main-nav a:hover { color: #654597; }
+  .main-navigation.toggled .menu-toggle { color: #654597; }
+}
+</style>
 <style id="ask-services-css">
 /* Services at a glance: pin each card's "read more" button to the bottom of the card */
 .mh-content-container-services { display: flex; flex-direction: column; }

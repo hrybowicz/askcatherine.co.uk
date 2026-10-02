@@ -25,6 +25,19 @@ CONTACT_CSS = """<style id="ask-contact-css">
 
 FORMSPREE = "https://formspree.io/f/maenvjzp"
 
+MENU_CSS = """<style id="ask-menu-css">
+/* Mobile menu: the open menu had no background (unreadable over the hero photo),
+   default blue links, and the white logo vanished once a background was added */
+@media (max-width: 768px) {
+  .main-navigation.toggled { background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); position: relative; z-index: 1000; }
+  .main-navigation.toggled .navigation-branding .main-title a,
+  .main-navigation.toggled .main-nav a { color: #8834FD; }
+  .main-navigation.toggled .main-nav a:hover { color: #654597; }
+  .main-navigation.toggled .menu-toggle { color: #654597; }
+}
+</style>
+"""
+
 SERVICES_CSS = """<style id="ask-services-css">
 /* Services at a glance: pin each card's "read more" button to the bottom of the card */
 .mh-content-container-services { display: flex; flex-direction: column; }
@@ -201,7 +214,9 @@ for page in ROOT.rglob("*.html"):
         html = re.sub(r'<script id="ask-contact-js">.*?</script>\n', lambda m: CONTACT_JS, html, flags=re.S)
         html = re.sub(r'<style id="ask-contact-css">.*?</style>\n', "", html, flags=re.S)
         html = html.replace("</head>", CONTACT_CSS + "</head>", 1)
-    html = re.sub(r'<style id="ask-services-css">.*?</style>\n', "", html, flags=re.S)
+    html = re.sub(r'<style id="ask-(?:services|menu)-css">.*?</style>\n', "", html, flags=re.S)
+    if 'id="site-navigation"' in html:
+        html = html.replace("</head>", MENU_CSS + "</head>", 1)
     if 'class="mh-content-container-services"' in html:
         html = html.replace("</head>", SERVICES_CSS + "</head>", 1)
     # Stray line break at the start of a services-card paragraph (the AI card, from the WordPress editor)
