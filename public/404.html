@@ -178,9 +178,29 @@ ai-workshop-headline {
   .main-navigation.toggled .menu-toggle { color: #654597; }
 }
 </style>
+<style id="ask-404-css">
+/* 404: footer sits at the bottom of the window; message centred on the Contact Catherine photo */
+body.error404 { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+body.error404 #page { flex: 1 0 auto; display: flex; width: 100%; max-width: none; margin: 0; padding: 0; }
+.ask-404 { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 6rem 20px; background: url('/wp-content/uploads/2025/12/IMG_1309.jpeg') center / cover no-repeat; }
+.ask-404__inner { max-width: 46rem; }
+.ask-404 h1 { color: var(--light1); font-size: 3em; line-height: 1.3; margin-bottom: 1.5rem; }
+.ask-404 p { color: var(--light1); font-size: 1.5rem; line-height: 1.6; margin-bottom: 2.5rem; }
+.ask-404__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.ask-404 .mh-butoon-one { display: inline-flex; align-items: center; gap: 0.5em; }
+.ask-404 .mh-butoon-one svg { width: 1em; height: 1em; }
+@media (max-width: 767px) {
+  .ask-404 { padding: 2rem 20px; }
+  .ask-404 h1 { font-size: 1.75em; margin-bottom: 1rem; }
+  .ask-404 p { font-size: 1.125rem; margin-bottom: 1.75rem; }
+  .ask-404__actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .ask-404 .mh-butoon-one { width: 100%; max-width: 18rem; justify-content: center; }
+}
+</style>
 </head>
 
-<body class="privacy-policy wp-singular page-template-default page page-id-278 wp-embed-responsive wp-theme-generatepress wp-child-theme-generatepress-child post-image-aligned-center sticky-menu-slide mobile-header mobile-header-logo no-sidebar nav-float-right one-container fluid-header active-footer-widgets-2 nav-search-enabled header-aligned-left dropdown-hover" itemtype="https://schema.org/WebPage" itemscope><a href="/cdn-cgi/content?id=.lNdqnl5UHPem.hhfKYCKQPVo9JhoRrWOkg1pbXDt5g-1790698605.322004-1.2.1.1-89pU.HF.PFfgsIjBx4ePFat1mq8vNbkpbQdK.ZbUs84k_ETZX0vHNZeA_GF8HXdh" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<body class="error404 wp-theme-generatepress wp-child-theme-generatepress-child post-image-aligned-center sticky-menu-slide mobile-header mobile-header-logo no-sidebar nav-float-right one-container fluid-header active-footer-widgets-2 nav-search-enabled header-aligned-left dropdown-hover" itemtype="https://schema.org/WebPage" itemscope><a href="/cdn-cgi/content?id=.lNdqnl5UHPem.hhfKYCKQPVo9JhoRrWOkg1pbXDt5g-1790698605.322004-1.2.1.1-89pU.HF.PFfgsIjBx4ePFat1mq8vNbkpbQdK.ZbUs84k_ETZX0vHNZeA_GF8HXdh" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
 	<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>		<header class="site-header" id="masthead" aria-label="Site" itemtype="https://schema.org/WPHeader" itemscope>
 			<div class="inside-header grid-container grid-parent">
 				<div class="site-branding">
@@ -223,17 +243,7 @@ ai-workshop-headline {
 </ul></div>			</div><!-- .inside-navigation -->
 		</nav><!-- #site-navigation -->
 		
-	<div class="site grid-container container hfeed grid-parent" id="page">
-				<div class="site-content" id="content">
-			
-	<div class="content-area grid-parent mobile-grid-100 grid-100 tablet-grid-100" id="primary">
-		<main class="site-main" id="main"><article class="page"><div class="inside-article"><header class="entry-header"><h1 class="entry-title">Oops! That page can’t be found.</h1></header><div class="entry-content"><p>It looks like nothing was found at this location. Try the <a href="/">homepage</a> or the <a href="/category/testimonials/">testimonials</a>.</p></div></div></article></main>
-	</div>
-
-	
-	</div>
-</div>
-
+	<div id="page"><main class="ask-404 photo-overlay-text" id="main"><div class="ask-404__inner"><h1><mark>Sorry, this page has wandered off.</mark></h1><p><mark>It may have moved, or the link might be out of date. Let’s get you back on track – head to the homepage, or get in touch and I’ll point you in the right direction.</mark></p><div class="ask-404__actions"><a class="mh-butoon-one" href="/">Back to the homepage<span class="gb-shape"><svg aria-hidden="true" height="1em" width="1em" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a><a class="mh-butoon-one" href="/#contact">Contact Catherine<span class="gb-shape"><svg aria-hidden="true" height="1em" width="1em" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span></a></div></div></main></div>
 
 <div class="site-footer footer-bar-active footer-bar-align-right">
 			<footer class="site-info" aria-label="Site" itemtype="https://schema.org/WPFooter" itemscope>

@@ -9,6 +9,7 @@
 Safe to re-run after a fresh export: each step skips pages already done.
 Usage: python3 scripts/patch-export.py
 """
+import os
 import pathlib
 import re
 
@@ -142,18 +143,71 @@ def absolute_seo_urls(html: str) -> str:
     return re.sub(r'<link rel="preload" href="[^"]*archivo-v25[^"]*"[^>]*>\n?', "", html)
 
 
+ARROW = ('<span class="gb-shape"><svg aria-hidden="true" height="1em" width="1em" viewBox="0 0 256 512" '
+         'xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0'
+         'l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 '
+         '33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></span>')
+
+# 404 copy: three options; NOT_FOUND_COPY picks one. Buttons are (label, href).
+NOT_FOUND_OPTIONS = {
+    "wandered": {
+        "title": "Sorry, this page has wandered off.",
+        "text": "It may have moved, or the link might be out of date. Let’s get you back on track – head to the "
+                "homepage, or get in touch and I’ll point you in the right direction.",
+        "buttons": [("Back to the homepage", "/"), ("Contact Catherine", "/#contact")],
+    },
+    "dead-end": {
+        "title": "Even the best plans hit a dead end.",
+        "text": "This page doesn’t exist any more – but the help you came for does. Book a free 15-minute chat "
+                "and we’ll work out your next step together.",
+        "buttons": [("Book a free 15-minute chat", "https://calendly.com/askcatherine/strategy-call"),
+                    ("Back to the homepage", "/")],
+    },
+    "signpost": {
+        "title": "Page not found.",
+        "text": "Here’s where most people are heading:",
+        "buttons": [("Services", "/#services"), ("Testimonials", "/category/testimonials/"), ("Contact", "/#contact")],
+    },
+}
+NOT_FOUND_COPY = os.environ.get("NOT_FOUND_COPY", "wandered")
+
+NOT_FOUND_CSS = """<style id="ask-404-css">
+/* 404: footer sits at the bottom of the window; message centred on the Contact Catherine photo */
+body.error404 { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+body.error404 #page { flex: 1 0 auto; display: flex; width: 100%; max-width: none; margin: 0; padding: 0; }
+.ask-404 { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 6rem 20px; background: url('/wp-content/uploads/2025/12/IMG_1309.jpeg') center / cover no-repeat; }
+.ask-404__inner { max-width: 46rem; }
+.ask-404 h1 { color: var(--light1); font-size: 3em; line-height: 1.3; margin-bottom: 1.5rem; }
+.ask-404 p { color: var(--light1); font-size: 1.5rem; line-height: 1.6; margin-bottom: 2.5rem; }
+.ask-404__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.ask-404 .mh-butoon-one { display: inline-flex; align-items: center; gap: 0.5em; }
+.ask-404 .mh-butoon-one svg { width: 1em; height: 1em; }
+@media (max-width: 767px) {
+  .ask-404 { padding: 2rem 20px; }
+  .ask-404 h1 { font-size: 1.75em; margin-bottom: 1rem; }
+  .ask-404 p { font-size: 1.125rem; margin-bottom: 1.75rem; }
+  .ask-404__actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .ask-404 .mh-butoon-one { width: 100%; max-width: 18rem; justify-content: center; }
+}
+</style>
+"""
+
+
 def make_404(template: str) -> str:
-    """Build 404.html from an exported page, keeping header and footer."""
+    """Build 404.html from an exported page, keeping the real menu and footer."""
+    copy = NOT_FOUND_OPTIONS[NOT_FOUND_COPY]
     html = re.sub(r"<title>[^<]*</title>", "<title>Page not found - —ask catherine</title>", template, count=1)
     html = re.sub(r'<link rel="canonical"[^>]*>\n?|<meta (?:property|name)="(?:og|twitter|description)[^>]*>\n?', "", html)
     html = re.sub(r'<meta name="robots" content="[^"]*"', '<meta name="robots" content="noindex, follow"', html)
-    a = html.find('<main class="site-main" id="main">')
-    b = html.find("</main>", a)
-    body = ('<main class="site-main" id="main"><article class="page"><div class="inside-article">'
-            '<header class="entry-header"><h1 class="entry-title">Oops! That page can’t be found.</h1></header>'
-            '<div class="entry-content"><p>It looks like nothing was found at this location. '
-            'Try the <a href="/">homepage</a> or the <a href="/category/testimonials/">testimonials</a>.</p></div>'
-            "</div></article>")
+    html = re.sub(r'<body class="[^"]*?(wp-theme-generatepress)', r'<body class="error404 \1', html, count=1)
+    html = html.replace("</head>", NOT_FOUND_CSS + "</head>", 1)
+    buttons = "".join(f'<a class="mh-butoon-one" href="{href}">{label}{ARROW}</a>' for label, href in copy["buttons"])
+    body = ('<div id="page"><main class="ask-404 photo-overlay-text" id="main"><div class="ask-404__inner">'
+            f'<h1><mark>{copy["title"]}</mark></h1><p><mark>{copy["text"]}</mark></p>'
+            f'<div class="ask-404__actions">{buttons}</div></div></main></div>\n\n')
+    a = html.find('<div class="site grid-container')
+    b = html.find('<div class="site-footer', a)
     return html[:a] + body + html[b:]
 
 
